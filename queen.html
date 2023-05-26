@@ -7,41 +7,35 @@
             width: 800px;
             height: 800px;
             background-image: url('img/chessboard.jpg');
-            background-attachment:fixed; 
+            background-attachment:local; 
             background-size: 800px 800px;
             }
-
             .chessboard {
             width: 680px;
             height: 680px;
-            margin: 50px;
-            
+            margin: 58px;            
             }
             .cell {
             float:left;
             width: 85px;
-            height: 85px;          
-            }
-            
+            height: 85px;
+            }            
             .cellChecked {
             float:left;
             width: 85px;
             height: 85px;
             background-image: url('img/queen.png');
             background-size: 85px 85px;
-            }
-            
+            }            
             .cell:hover {    
             background-image: url('img/queen.png');
             background-size: 85px 85px;
             }
-
             #result {
                 color:burlywood;
                 text-align: center;
                 font-size: 24px;
-                width: 800px;
-                
+                width: 800px;                
             }
         </style>
         <script>
@@ -49,17 +43,13 @@
             function checker(a,b){
                 let id = "" + a + b;
                 let cheked = document.getElementById(id);
-                
                 let queenText = document.getElementById("queenCount")
                                 
                 for(let i = 0; i<8; i++){
                     let idHorizontale = "" + a + i;
-                    let idVerticale = "" + i + b;
-
-                    
+                    let idVerticale = "" + i + b;                    
                     let horizontaleCheked = document.getElementById(idHorizontale)
-                    let verticaleCheked = document.getElementById(idVerticale)
-                    
+                    let verticaleCheked = document.getElementById(idVerticale)                    
 
                     if (horizontaleCheked.classList == "cellChecked"){horizontaleCheked.classList = "cell"; queenCounter--}
                     if (verticaleCheked.classList == "cellChecked"){verticaleCheked.classList = "cell"; queenCounter--}
@@ -69,26 +59,22 @@
                         let diagonaleCheked = document.getElementById(idDiagonale)
                         if (diagonaleCheked.classList == "cellChecked"){diagonaleCheked.classList = "cell"; queenCounter--}    
                     }
-
                     if ((a - i) >= 0 && (b - i) >= 0){
                         let idDiagonale = "" + (a-i) + (b-i)
                         let diagonaleCheked = document.getElementById(idDiagonale)
                         if (diagonaleCheked.classList == "cellChecked"){diagonaleCheked.classList = "cell";queenCounter--}    
                     }
-
                     if ((a + i) < 8 && (b - i) >= 0){
                         let idDiagonale = "" + (a+i) + (b-i)
                         let diagonaleCheked = document.getElementById(idDiagonale)
                         if (diagonaleCheked.classList == "cellChecked"){diagonaleCheked.classList = "cell";queenCounter--}    
                     }
-
                     if ((a - i) >= 0 && (b + i) < 8){
                         let idDiagonale = "" + (a-i) + (b+i)
                         let diagonaleCheked = document.getElementById(idDiagonale)
                         if (diagonaleCheked.classList == "cellChecked"){diagonaleCheked.classList = "cell";queenCounter--}    
                     }                
                 }
-
                 cheked.classList = "cellChecked"
                 queenCounter ++;
                 queenText.textContent = queenCounter;
@@ -177,11 +163,11 @@
                 <div id="74" class="cell" onclick="checker(7,4)"></div>
                 <div id="75" class="cell" onclick="checker(7,5)"></div>
                 <div id="76" class="cell" onclick="checker(7,6)"></div>
-                <div id="77" class="cell" onclick="checker(7,7)"></div>
-                
+                <div id="77" class="cell" onclick="checker(7,7)"></div>                
             </div>  
         </form>
         <form id="result">
+            <div>Целта на играта е да сложите 8 царици на шахматната дъска, условието е, че те не трябва да се засичат, като знаете, че всяка царица "бие" другите по хоризонтала, вертикала и диагонали.</div>
             <span>Имате:</span>
             <span id="queenCount"></span>
             <span>царици</span>
