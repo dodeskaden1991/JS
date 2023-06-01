@@ -66,6 +66,37 @@ function biggest(){
 
 function binary(number){
     console.log(parseInt(number,2))
-} 
+}
 
-binary(101101001)
+function chessBoard(parametry){
+    const board = {
+        black: () => {
+            let color = "black"
+            for(let i = 1; i <= parametry; i++){
+                console.log(`\t\t<span class="${color}"></span>`)
+                color == "black" ? color = "white" : color = "black"
+            }
+        },
+        white: () => {
+            let color = "white"
+            for(let i = 1; i <= parametry; i++){
+                console.log(`\t\t<span class="${color}"></span>`)
+                color == "white" ? color = "black" : color = "white"
+            }
+        }
+    }
+    console.log(`<div class="chessboard">`)
+    for(let i = 1; i<= parametry; i++){
+        console.log("\t<div>")
+        i % 2 != 0 ? board.black() : board.white()
+        console.log("\t</div>")
+    }
+    console.log("</div>")
+}
+
+function triangleArea(a,b,c){
+    let p = (a + b + c) / 2
+    console.log(Math.sqrt(p*(p-a)*(p-b)*(p-c)))
+}
+
+chessBoard(5)
