@@ -1,19 +1,3 @@
-function test(){
-    let a = "asd_asd_asd_asd"
-    a = a.replace("_","!")
-    console.log(a)
-    if(a.includes("_")){console.log("includes")}
-    while(a.search("_") >= 0){a = a.replace("_","!")}
-    console.log(a)
-    if(a.includes("_")){console.log("includes")}
-    if(!a.includes("_")){console.log("not includes")}
-    let probno = typeof(a) == "string" ? "yes" : "No"
-    console.log(probno) 
-    console.log(101%1)
-    while(a.includes("!")){a = a.replace("!",">")}
-    console.log(a);
-}
-
 function echotype(input){
     typeof(input) == "number" || typeof(input) == "string" ? 
         (console.log(typeof(input)), console.log(input)) :  
