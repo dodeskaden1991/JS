@@ -10,6 +10,7 @@ console.log(arr.includes(20)); // true
 console.log(arr.includes(0)); // false
 console.log(arr.join(':')); // 10:20:30
 let words = [ "one", "two" ];
+console.log(words)
 console.log(words.join(' - ')); 
 console.log(words.toString())
 let sliceArr = array.slice(1,3)
@@ -39,10 +40,37 @@ console.log(`Using an index of ${index} item returned is ${array1.at(index)}`);
 array1.shift()
 console.log("shift reje purvi element ",array1)
 array1.unshift("Unshift dobavq v nachaloto")
-console.log(array1)
+console.log(array1, "shte go pop")
 array1.pop()
 console.log("pop reje nakraq ", array1)
-console.log(array.concat(array1),"\t",array,"\t",array1)
+console.log("concat prisuedinqva masivi",array.concat(array1),array,array1)
+console.log(array1.indexOf('Unshift dobavq v nachaloto'))
+
+
+const num1 = [[1],[2]];
+const num2 = [2, [3]];
+
+const numbers2 = num1.concat(num2);
+
+console.log(numbers2);
+// results in [[1], 2, [3]]
+
+// modify the first element of num1
+num1[1].push("promqna sled concat, samo ako e masiv");
+
+console.log(numbers2);
+// results in [[1, 4], 2, [3]]
+
+let words2 = ['nest', 'Eggs', 'bite', 'Grip', 'jAw'];
+let words3 = ['nest', 'Eggs', 'bite', 'Gripp', 'jAw'];
+words3.sort()
+words2.sort((a, b) => a.localeCompare(b));
+
+console.log(words2);
+
+console.log(words3);
+
+
 }
 
 function test2(){
