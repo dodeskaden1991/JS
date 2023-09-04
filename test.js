@@ -94,3 +94,68 @@ test();
 // console.log(String.fromCharCode(65)); // A
 // Обръщаме първия символ "H" в ASCII код - където стр е променлива
 // console.log(str.charCodeAt(0)); // 72
+
+function archer(input){
+    let point = 0;
+    let targetsArr = input.shift()
+        .split("|")
+        .map(Number);
+        for(text of input){
+            if(text === "Game over"){break;}
+            if(text === "Reverse"){targetsArr.reverse(); continue;}
+            text = text.split("Shoot ").join("");
+            let [position,first,second] = text.split("@")
+            switch(position){
+                case "Left":
+                    if(first < targetsArr.length - 1){
+                        x = Number(first) - Number(second);
+                        while(x < 0){x = targetsArr.length + x}
+                        targetsArr[x] -= 5
+                        point += 5;
+                    }
+                    break;
+                case "Right":
+                    if(first < targetsArr.length){
+                        x = Number(first) + Number(second);
+                        while(x > targetsArr.length - 1){x -= targetsArr.length}
+                        targetsArr[x] -= 5
+                        point += 5;
+                    }
+                    break;
+            }            
+        }
+        console.log(targetsArr.join(" - "));
+        console.log(`John finished the archery tournament with ${point} points!`) 
+}
+
+function asd(){
+    for(let i=1; i<=20; i++){
+        console.log(`
+        <div id="${i}-1" class="snake"></div>
+        <div id="${i}-2" class="snake"></div>
+        <div id="${i}-3" class="snake"></div>
+        <div id="${i}-4" class="snake"></div>
+        <div id="${i}-5" class="snake"></div>
+        <div id="${i}-6" class="snake"></div>
+        <div id="${i}-7" class="snake"></div>
+        <div id="${i}-8" class="snake"></div>
+        <div id="${i}-9" class="snake"></div>
+        <div id="${i}-10" class="snake"></div>
+        <div id="${i}-11" class="snake"></div>
+        <div id="${i}-12" class="snake"></div>
+        <div id="${i}-13" class="snake"></div>
+        <div id="${i}-14" class="snake"></div>
+        <div id="${i}-15" class="snake"></div>
+
+`)
+    }
+}
+
+// asd()
+
+archer([
+    "10|10|10|10|10",
+    "Shoot Left@0@2",
+    "Shoot Right@4@5",
+    "Reverse"
+])

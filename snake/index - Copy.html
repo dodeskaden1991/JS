@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="code.js"></script>
+        <style type="text/css">
+            #mainform {
+                width: 650;  
+                height: 500px;
+                background-color: bisque;
+            }
+            .center {
+                display:flex;
+                justify-content: center;
+                text-align: center;
+            }
+            #text {
+                margin: 20px;
+                width: 610px;
+                height: 350px;
+                border: solid 2px black;
+                resize: none;
+            }
+            #key {
+                margin: 20px;
+                margin-top: 0px;
+                width: 610px;
+                height: 40px;
+                border: solid 2px black;
+            }
+            #submit {
+                width: 100px;
+                font-size: 20px;
+                margin: 0 auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="center">
+        <form id="mainform"> 
+            <textarea id="text" rows="4" cols="50" >Поставете вашия текст тука</textarea>
+            <input type="text" id="key" value="Поставете вашия ключ тука"></input>
+            <input type="button" id="submit" value="CODE" onclick="start()"></input> 
+            <button type="button" class="button" onclick="start()">START</button>  
+            <input type="radio" id="functionCode" name="function" value="code" checked="true"></input>
+            <label for="functionCode">Code</label> 
+            <input type="radio" id="functionDecode" name="function" value="decode"></input>
+            <label for="functionDecode">Decode</label> 
+        </form>
+        </div>
+    </body>
+</html>

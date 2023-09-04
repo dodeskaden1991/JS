@@ -66,7 +66,7 @@ function eight(input){
 
 //nqkakvi tupi kv.m. na cena 7.61 i 18% otstupka
 
-function nine(input){
+function nine(input) {
     let a = Number(input[0]);
     let price = Number;
     let free = Number;

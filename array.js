@@ -87,6 +87,26 @@ function test2(){
     console.log(101%1)
     while(a.includes("!")){a = a.replace("!",">")}
     console.log(a);
+    let text = " Annoying spaces ";
+    console.log(text.substring(2));
+    console.log(text.substring(2,7));
+    console.log(text.trim());
+    console.log(text.trimStart());
+    console.log(text.trimEnd());
+    text = "My name is John";
+    console.log(text.startsWith('My'));
+    text = "asd My name is John 2";
+    console.log(text.startsWith('My'));
+    console.log(text.startsWith('My',4));
+    console.log(text.endsWith('John'));
+    console.log(text.endsWith('John',19)); // absurdno e
+    text = "010";
+    console.log(text.padStart(8, '*'))
+    console.log(text.padStart(2, '*'))
+
+    console.log(text.padEnd(8, '*'))
+    console.log(text.padEnd(2, '*'))
+
 }
 
 test()

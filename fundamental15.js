@@ -1,3 +1,18 @@
+function equal(imput){
+    counter = 0
+    for(argument of imput){
+        for(let i=0; i<argument.length; i++){
+            if(argument[i]==argument[i+1]){counter++}
+        }
+    }
+    for(let i=0; i< imput[0].length; i++){
+        for(let j=0; j< imput.length - 1; j++){
+            if(imput[j][i] == imput[j+1][i]){counter++}
+        }
+    }
+    console.log(counter)
+} 
+
 function bunny(){
     function bombBOOM(game, damage, position){
         const min = 0
@@ -69,5 +84,60 @@ function bunny(){
     console.log(game.kills)
 }
 
-bunny(['10 10 10 10',
-'0,1'])
+function air(body, position){
+    let action = [
+        {
+            item : 'breeze',
+            do : (x) => {
+                body[x] = body[x].map(x => x - 15)
+            }
+        },
+        {
+            item : 'gale',
+            do : (x) => {
+                for(let i = 0; i < body.length; i++) {
+                    body[i][x] -= 20
+                }
+            }
+        },
+        {
+            item : 'smog',
+            do : (x) => {
+                body = body.map(element => 
+                    element.map(item => Number(item) + Number(x))
+                );
+            }
+        }
+    ]
+    for(let i = 0; i < body.length; i++){
+        body[i] = body[i].split(" ")
+    }
+    for(type of position){
+        type = type.split(" ")
+        let airforce = type[0]
+        let todo = type[1]
+        let match = action.find((x) => x.item == airforce)
+        if(match){
+            match.do(todo)
+        }
+        body = body.map((row) => row.map(x => x < 0 ? x = 0 : x))
+    }
+    let result = new Array
+    body.forEach((row, rowIndex) => {
+        row.forEach((item,colIndex) =>{
+            if(item >= 50){result.push(`[${[rowIndex, colIndex].join("-")}]`)}
+        })
+    })
+    if(result.length > 1){
+        console.log(`Polluted areas: ${result.join(", ")}`)
+    }else if(result.length > 0){
+        console.log(`Polluted areas: ${result}`)
+    }else{
+        console.log("No polluted areas")
+    }
+}
+
+air(
+    ["0 0 0 0 0", "0 0 0 0 0", "0 0 0 0 0", "0 0 0 0 0", "0 0 0 0 0"],
+    [" breeze 0", "breeze 1", "breeze 2", "breeze 3", "breeze 4", "smog 50"]
+  )
