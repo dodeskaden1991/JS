@@ -43,3 +43,7 @@ body {
     background-size: cover;
 
 }
+#power {
+    width: 50px;
+    background-color: transparent;
+}
