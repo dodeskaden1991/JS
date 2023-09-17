@@ -5,6 +5,7 @@
     height: 20px;
     float: left;
 }
+
 .snakeMove {
     color: white;
     background: whitesmoke;
@@ -13,6 +14,7 @@
     height: 20px;
     float: left;
 }
+
 .snakeBall {
     color: white;
     background: rgb(255, 243, 136);
@@ -21,29 +23,85 @@
     height: 20px;
     float: left;
 }
+
 .snakeBody {
-    color:white;
-    border : solid 2px;
+    color: white;
+    border: solid 2px;
     width: 330px;
     height: 440px;
     background: black;
 }
+
 .body {
     width: 334px;
     margin: auto;
     background: silver;
     text-align: center;
 }
+
 .button {
     width: 100px;
     margin-top: 10px;
 }
+
 body {
     background-image: url(background.jpeg);
     background-size: cover;
 
 }
+
 #power {
     width: 50px;
     background-color: transparent;
+}
+
+html {
+    touch-action: none;
+}
+
+@media screen and (max-width: 1440px) {
+    .snake {
+        border: solid 2px;
+        width: 40px;
+        height: 40px;
+    }
+    
+    .snakeMove {
+        border: solid 2px;
+        width: 40px;
+        height: 40px;
+    }
+    
+    .snakeBall {
+        border: solid 2px;
+        width: 40px;
+        height: 40px;
+    }
+    
+    .snakeBody {
+        border: solid 2px;
+        width: 660px;
+        height: 880px;
+    }
+    
+    .body {
+        width: 668px;
+        font-size: 30px;
+    }
+    
+    .button {
+        width: 200px;
+        font-size: 30px;
+        margin-top: 20px;
+    }
+    
+    body {
+        background-image: url(background.jpeg);
+        background-size:contain;
+    }
+    
+    #power {
+        width: 100px;
+        font-size: 30px;
+    }
 }

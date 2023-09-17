@@ -41,7 +41,8 @@ let snake = {
 function start() {
     let button = document.getElementById("button");
     let power = document.getElementById("power").value;
-    if (!power){power = null}
+
+    if (!power) { power = null }
     boost = power ?? 100;
 
     button.hidden = true;
@@ -88,34 +89,39 @@ window.addEventListener("touchstart", function (event) {
 
 
 window.addEventListener("touchmove", function (event) {
+
     let changedTouches = event.changedTouches;
     for (let i = 0; i < changedTouches.length; i++) {
         let touch = changedTouches[i];
-        
+
         if (touch.identifier === window.swipe.id) {
-            
+
             window.swipe.end = { x: touch.pageX, y: touch.pageY };
-            
+
             let deltaX = window.swipe.end.x - window.swipe.start.x;
             let deltaY = window.swipe.end.y - window.swipe.start.y;
-           
+
             if (Math.abs(deltaX) > Math.abs(deltaY)) {
-                
+
                 if (deltaX > 0) {
-                    
+
                     window.swipe.direction = "right";
+                    snake.position = window.swipe.direction;
                 } else {
-                    
+
                     window.swipe.direction = "left";
+                    snake.position = window.swipe.direction;
                 }
             } else {
-                
+
                 if (deltaY > 0) {
-                    
+
                     window.swipe.direction = "down";
+                    snake.position = window.swipe.direction;
                 } else {
-                    
+
                     window.swipe.direction = "up";
+                    snake.position = window.swipe.direction;
                 }
             }
         }
@@ -124,25 +130,24 @@ window.addEventListener("touchmove", function (event) {
 
 
 window.addEventListener("touchend", function (event) {
-   
+
     let changedTouches = event.changedTouches;
-    
+
     for (let i = 0; i < changedTouches.length; i++) {
-        
+
         let touch = changedTouches[i];
-        
+
         if (touch.identifier === window.swipe.id) {
-            
+
             if (window.swipe.direction) {
-                
+
                 snake.position = window.swipe.direction;
             }
-            
+
             window.swipe = null;
         }
     }
 });
-
 
 function move() {
     var audioContext = new AudioContext();
