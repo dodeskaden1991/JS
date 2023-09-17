@@ -109,4 +109,26 @@ function test2(){
 
 }
 
-test()
+test2()
+
+const numbersArr= [30, 50, 40, 10, 70];
+const average =
+numbersArr.reduce((total, number, index, array) => {
+total += number;
+if( index === array.length-1) {
+return total/array.length;
+} else { return total; }
+});
+console.log(average) // 40
+
+function diagonalSums(input) {
+    let firstDiagonal = 0;
+    let secondDiagonal = 0;
+    let firstIndex = 0;
+    let secondIndex = input[0].length - 1;
+    input.forEach(array => {
+    firstDiagonal += array[firstIndex++];
+    secondDiagonal += array[secondIndex--];
+    });
+    console.log(firstDiagonal + ' ' + secondDiagonal);
+    }
