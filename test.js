@@ -182,3 +182,42 @@ function running() {
         }
 
         aggregateElements([1,2,4])
+
+        function print() {
+            console.log(`${this.name} is printing a page`);
+            }
+            function scan() {
+            console.log(`${this.name} is scanning a document`);
+            }
+            const printer = { name: 'ACME Printer',
+            print };
+            const scanner = { name: 'Initech Scanner',
+            scan };
+            const copier = { name: 'ComTron Copier',
+            print,
+            scan };
+    
+            printer.print();
+
+            let arr = [ "John", "Peter", "Sally", "Jane" ];
+let myJSON = JSON.stringify(arr);
+let myJSON2 = JSON.stringify(arr, null, 2);
+console.log(myJSON); // ["John","Peter","Sally","Jane"]
+console.log(myJSON2); // ["John","Peter","Sally","Jane"]
+
+
+obj01 = {
+    a: 1,
+};
+obj02 = {
+    b: 2,
+};
+Object.assign(obj01, obj02);
+console.log(obj01); // { a: 1, b: 2 }
+obj02.b = 3;
+console.log(obj01); // { a: 1, b: 2 }
+console.log(obj02); // { b: 3 }
+delete obj01.b;
+obj03 = Object.create(obj02);
+console.log(obj03);
+console.log(obj03.b); // { b: 3 }

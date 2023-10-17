@@ -1,229 +1,238 @@
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <style>
-            body {
-                background-image: url("https://i.etsystatic.com/19532265/r/il/113073/1866467707/il_fullxfull.1866467707_ixm4.jpg");
-                background-position: center;
-                background-size: 100% 100%;
-                background-attachment: fixed;
-            }
-            #quiz-form {
-                text-align: center;
-                width: 640px;
-                height: 400px;
-                overflow: auto;
-                background-color: rgba(240, 255, 255, 0.7);
-                border: black double 12px;
-                margin-bottom: 0px;
-            }
-            #answer-form{
-                text-align: justify;
-                width: 640px;
-                height: 300px;
-                overflow: auto;
-                background-color: rgba(240, 255, 255, 0.7);
-                border: black double 12px;
-                margin-bottom: 0px;
-            }
-            #head-form{
-                text-align: center;
-                background-color: rgba(240, 255, 255, 0.7);
-                border: black double 12px;
-                font-size: 39px;
-                margin-bottom: 0px;
-            }
-            .answer-paragraph-bad{
-                text-align: justify;
-                font-size: larger;
-                font-style: italic;
-                color: red;
-                white-space: pre-line;
-                
-            }
-            .answer-paragraph-avarage{
-                text-align: justify;
-                font-size: larger;
-                font-style: italic;
-                color: blue;
-                white-space: pre-line;
-            }
-            .answer-paragraph-good{
-                text-align: justify;
-                font-size: larger;
-                font-style: italic;
-                color: green;
-                white-space: pre-line;
-            }
-            .wiki-paragraph{
-                white-space: pre-line;
-            }
-            p {
-                border: solid 2px black;
-                font-size: larger;
-                background-color: rgba(240, 255, 255, 0.5);
-                margin-bottom: 0px;
-                margin-top: 0px;
-                margin-left: 5px;
-                margin-right: 5px;
-            }
-            
-            label {
-                font-size:larger;
-            }
-        </style>
 
-        <script>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            background-image: url("https://i.etsystatic.com/19532265/r/il/113073/1866467707/il_fullxfull.1866467707_ixm4.jpg");
+            background-position: center;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+        }
 
-            function check () {
-                let counter = 0;
-                let errorCheck = "";
-                for (let i = 1; i<=71; i++){
-                    let q = document.getElementsByName(`q${i}`)
-                    if (q[0].checked || q[1].checked) {
-                        counter ++
-                    }else{
-                        errorCheck = errorCheck + `Не сте попълнили въорис ${i} \n`                        
+        #quiz-form {
+            text-align: center;
+            width: 640px;
+            height: 400px;
+            overflow: auto;
+            background-color: rgba(240, 255, 255, 0.7);
+            border: black double 12px;
+            margin-bottom: 0px;
+        }
+
+        #answer-form {
+            text-align: justify;
+            width: 640px;
+            height: 300px;
+            overflow: auto;
+            background-color: rgba(240, 255, 255, 0.7);
+            border: black double 12px;
+            margin-bottom: 0px;
+        }
+
+        #head-form {
+            text-align: center;
+            background-color: rgba(240, 255, 255, 0.7);
+            border: black double 12px;
+            font-size: 39px;
+            margin-bottom: 0px;
+        }
+
+        .answer-paragraph-bad {
+            text-align: justify;
+            font-size: larger;
+            font-style: italic;
+            color: red;
+            white-space: pre-line;
+
+        }
+
+        .answer-paragraph-avarage {
+            text-align: justify;
+            font-size: larger;
+            font-style: italic;
+            color: blue;
+            white-space: pre-line;
+        }
+
+        .answer-paragraph-good {
+            text-align: justify;
+            font-size: larger;
+            font-style: italic;
+            color: green;
+            white-space: pre-line;
+        }
+
+        .wiki-paragraph {
+            white-space: pre-line;
+        }
+
+        p {
+            border: solid 2px black;
+            font-size: larger;
+            background-color: rgba(240, 255, 255, 0.5);
+            margin-bottom: 0px;
+            margin-top: 0px;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+
+        label {
+            font-size: larger;
+        }
+    </style>
+
+    <script>
+
+        function check() {
+            let counter = 0;
+            let errorCheck = "";
+            for (let i = 1; i <= 71; i++) {
+                let q = document.getElementsByName(`q${i}`)
+                if (q[0].checked || q[1].checked) {
+                    counter++
+                } else {
+                    errorCheck = errorCheck + `Не сте попълнили въорис ${i} \n`
+                }
+            }
+            if (counter != 71) {
+                alert(errorCheck)
+                return;
+            } else {
+                test()
+            }
+        }
+
+        function test() {
+            let hipohondry = 0;
+            let depress = 0;
+            let histery = 0;
+            let psychopaty = 0;
+            let paranoy = 0;
+            let psychosteny = 0;
+            let schizoide = 0;
+            let hipomany = 0;
+            let lie = 0;
+            let trueCheck = 0;
+            let corection = 0;
+
+            let pHipohondry = document.getElementById("hipohondry");
+            let pDepress = document.getElementById("depress");
+            let pHistery = document.getElementById("histery");
+            let pPsychopaty = document.getElementById("psychopaty");
+            let pParanoy = document.getElementById("paranoy");
+            let pPsychosteny = document.getElementById("psychosteny");
+            let pSchizoide = document.getElementById("schizoide");
+            let pHipomany = document.getElementById("hipomany");
+            let pLie = document.getElementById("lie");
+            let pTrueCheck = document.getElementById("trueCheck");
+            let pCorection = document.getElementById("corection");
+            let pLegend = document.getElementById("legend");
+
+            for (let i = 1; i <= 71; i++) {
+                let q = document.getElementsByName(`q${i}`)
+                let value
+
+                for (let j = 0; j < q.length; j++) {
+                    if (q[j].checked) {
+                        value = q[j].value;
                     }
                 }
-                if(counter != 71){
-                    alert(errorCheck)
-                    return;
-                }else{
-                    test()
+
+                //hipohondry
+                if (value == "yes" && (i == 9 || i == 18 || i == 26 || i == 32 || i == 44 || i == 46 || i == 55 || i == 62 || i == 63)) {
+                    hipohondry++;
+                }
+                else if (value == "no" && (i == 1 || i == 2 || i == 6 || i == 37 || i == 45)) {
+                    hipohondry++;
+                }
+
+                //depress
+                if (value == "yes" && (i == 4 || i == 9 || i == 13 || i == 17 || i == 18 || i == 22 || i == 25 || i == 36 || i == 44)) {
+                    depress++;
+                }
+                else if (value == "no" && (i == 1 || i == 3 || i == 6 || i == 11 || i == 28 || i == 37 || i == 40 || i == 42 || i == 60 || i == 61 || i == 65)) {
+                    depress++;
+                }
+
+                //histery
+                if (value == "yes" && (i == 9 || i == 13 || i == 18 || i == 26 || i == 44 || i == 46 || i == 55 || i == 57 || i == 62)) {
+                    histery++;
+                }
+                else if (value == "no" && (i == 1 || i == 2 || i == 3 || i == 11 || i == 23 || i == 28 || i == 29 || i == 31 || i == 33 || i == 35 || i == 37 || i == 40 || i == 41 || i == 43 || i == 45 || i == 50 || i == 56)) {
+                    histery++;
+                }
+
+                //psychopaty
+                if (value == "yes" && (i == 7 || i == 10 || i == 13 || i == 14 || i == 15 || i == 16 || i == 22 || i == 27 || i == 52 || i == 58 || i == 71)) {
+                    psychopaty++;
+                }
+                else if (value == "no" && (i == 3 || i == 28 || i == 34 || i == 35 || i == 41 || i == 43 || i == 50 || i == 65)) {
+                    psychopaty++;
+                }
+
+                //paranoy
+                if (value == "yes" && (i == 5 || i == 8 || i == 10 || i == 15 || i == 30 || i == 39 || i == 63 || i == 64 || i == 66 || i == 68)) {
+                    paranoy++;
+                }
+                else if (value == "no" && (i == 28 || i == 29 || i == 31 || i == 67)) {
+                    paranoy++;
+                }
+
+                //psychosteny
+                if (value == "yes" && (i == 5 || i == 8 || i == 13 || i == 17 || i == 22 || i == 25 || i == 27 || i == 36 || i == 44 || i == 51 || i == 57 || i == 66 || i == 68)) {
+                    psychosteny++;
+                }
+                else if (value == "no" && (i == 2 || i == 3 || i == 42)) {
+                    psychosteny++;
+                }
+
+                //schizoide
+                if (value == "yes" && (i == 5 || i == 7 || i == 8 || i == 10 || i == 13 || i == 14 || i == 15 || i == 16 || i == 17 || i == 26 || i == 30 || i == 38 || i == 39 || i == 46 || i == 57 || i == 63 || i == 64 || i == 66)) {
+                    schizoide++;
+                }
+                else if (value == "no" && (i == 3 || i == 42)) {
+                    schizoide++;
+                }
+
+                //hipomany
+                if (value == "yes" && (i == 4 || i == 7 || i == 8 || i == 21 || i == 29 || i == 34 || i == 38 || i == 39 || i == 54 || i == 57 || i == 60)) {
+                    hipomany++;
+                }
+                else if (value == "no" && i == 43) {
+                    hipomany++;
+                }
+
+                //lie
+                if (value == "no" && (i == 5 || i == 11 || i == 24 || i == 47 || i == 53 || i == 20 || i == 61)) {
+                    lie++;
+                }
+
+                //trueCheck
+                if (value == "yes" && (i == 9 || i == 12 || i == 13 || i == 19 || i == 30 || i == 38 || i == 48 || i == 49 || i == 58 || i == 59 || i == 64 || i == 71)) {
+                    trueCheck++;
+                }
+
+                //corection
+                if (value == "no" && (i == 11 || i == 23 || i == 31 || i == 33 || i == 34 || i == 36 || i == 40 || i == 41 || i == 43 || i == 51 || i == 56 || i == 61 || i == 65 || i == 67 || i == 69 || i == 70)) {
+                    corection++;
                 }
             }
-    
-            function test () {
-                let hipohondry = 0;
-                let depress = 0;
-                let histery = 0;
-                let psychopaty = 0;
-                let paranoy = 0;
-                let psychosteny = 0;
-                let schizoide = 0;
-                let hipomany = 0;
-                let lie = 0;
-                let trueCheck = 0;
-                let corection = 0;
 
-                let pHipohondry = document.getElementById("hipohondry");
-                let pDepress = document.getElementById("depress");
-                let pHistery = document.getElementById("histery");
-                let pPsychopaty = document.getElementById("psychopaty");
-                let pParanoy = document.getElementById("paranoy");
-                let pPsychosteny = document.getElementById("psychosteny");
-                let pSchizoide = document.getElementById("schizoide");
-                let pHipomany = document.getElementById("hipomany");
-                let pLie = document.getElementById("lie");
-                let pTrueCheck = document.getElementById("trueCheck");
-                let pCorection = document.getElementById("corection");    
-                let pLegend = document.getElementById("legend");            
+            corection = (corection / 16) * 100;
+            hipohondry = (hipohondry / 14) * 100;
+            depress = (depress / 20) * 100;
+            histery = (histery / 26) * 100 + (0.005 * corection * 100 / 26);
+            psychopaty = (psychopaty / 19) * 100 + (0.004 * corection * 100 / 19);
+            paranoy = (paranoy / 14) * 100;
+            psychosteny = (psychosteny / 16) * 100 + (0.01 * corection * 100 / 16);
+            schizoide = (schizoide / 20) * 100 + (0.01 * corection * 100 / 20);
+            hipomany = (hipomany / 12) * 100 + (0.002 * corection * 100 / 12);
+            lie = (lie / 7) * 100;
+            trueCheck = (trueCheck / 12) * 100;
 
-                for (let i = 1; i<=71; i++){
-                    let q = document.getElementsByName(`q${i}`)
-                    let value
-
-                    for (let j = 0; j < q.length; j++) {
-                        if (q[j].checked) {
-                            value = q[j].value;
-                        }
-                    }
-
-                    //hipohondry
-                    if(value == "yes" && (i == 9 || i == 18 || i == 26 || i == 32 || i == 44 || i == 46 || i == 55 || i == 62 || i == 63)) {
-                        hipohondry ++;
-                        }
-                    else if(value == "no" &&  (i == 1 || i == 2 || i == 6 || i == 37 || i == 45)){
-                        hipohondry ++;
-                        }
-
-                    //depress
-                    if(value == "yes" && (i == 4 || i == 9 || i == 13 || i == 17 || i == 18 || i == 22 || i == 25 || i == 36 || i == 44)) {
-                        depress ++;
-                        }
-                    else if(value == "no" &&  (i == 1 || i == 3 || i == 6 || i == 11 || i == 28 || i == 37 || i == 40 || i == 42 || i == 60 || i == 61 || i == 65)){
-                        depress ++;
-                        }
-
-                    //histery
-                    if(value == "yes" && (i == 9 || i == 13 || i == 18 || i == 26 || i == 44 || i == 46 || i == 55 || i == 57 || i == 62)) {
-                        histery ++;
-                        }
-                    else if(value == "no" &&  (i == 1 || i == 2 || i == 3 || i == 11 || i == 23 || i == 28 || i == 29 || i == 31 || i == 33 || i == 35 || i == 37 || i == 40 || i == 41 || i == 43 || i == 45 || i == 50 || i == 56)){
-                        histery ++;
-                        }
-
-                    //psychopaty
-                    if(value == "yes" && (i == 7 || i == 10 || i == 13 || i == 14 || i == 15 || i == 16 || i == 22 || i == 27 || i == 52 || i == 58 || i == 71)) {
-                        psychopaty ++;
-                        }
-                    else if(value == "no" &&  (i == 3 || i == 28 || i == 34 || i == 35 || i == 41 || i == 43 || i == 50 || i == 65)){
-                        psychopaty ++;
-                        }
-
-                    //paranoy
-                    if(value == "yes" && (i == 5 || i == 8 || i == 10 || i == 15 || i == 30 || i == 39 || i == 63 || i == 64 || i == 66 || i == 68)) {
-                        paranoy ++;
-                        }
-                    else if(value == "no" &&  (i == 28 || i == 29 || i == 31 || i == 67)){
-                        paranoy ++;
-                        }
-
-                    //psychosteny
-                    if(value == "yes" && (i == 5 || i == 8 || i == 13 || i == 17 || i == 22 || i == 25 || i == 27 || i == 36 || i == 44 || i == 51 || i == 57 || i == 66 || i == 68)) {
-                        psychosteny ++;
-                        }
-                    else if(value == "no" &&  (i == 2 || i == 3 || i == 42)){
-                        psychosteny ++;
-                        }
-
-                    //schizoide
-                    if(value == "yes" && (i == 5 || i == 7 || i == 8 || i == 10 || i == 13 || i == 14 || i == 15 || i == 16 || i == 17 || i == 26 || i == 30 || i == 38 || i == 39 || i == 46 || i == 57 || i == 63 || i == 64 || i == 66)) {
-                        schizoide ++;
-                        }
-                    else if(value == "no" &&  (i == 3 || i == 42)){
-                        schizoide ++;
-                        }
-
-                    //hipomany
-                    if(value == "yes" && (i == 4 || i == 7 || i == 8 || i == 21 || i == 29 || i == 34 || i == 38 || i == 39 || i == 54 || i == 57 || i == 60)) {
-                        hipomany ++;
-                        }
-                    else if(value == "no" && i == 43){
-                        hipomany ++;
-                        }
-
-                    //lie
-                    if(value == "no" && (i == 5 || i == 11 || i == 24 || i == 47 || i == 53 || i == 20 || i == 61)) {
-                        lie ++;
-                    }
-
-                    //trueCheck
-                    if(value == "yes" && (i == 9 || i == 12 || i == 13 || i == 19 || i == 30 || i == 38 || i == 48 || i == 49 || i == 58 || i == 59 || i == 64 || i == 71)) {
-                        trueCheck ++;
-                        }
-
-                    //corection
-                    if(value == "no" && (i == 11 || i == 23 || i == 31 || i == 33 || i == 34 || i == 36 || i == 40 || i == 41 || i == 43 || i == 51 || i == 56 || i == 61 || i == 65 || i == 67 || i == 69 || i == 70)) {
-                        corection ++;
-                        }                        
-                }
-                
-                corection = (corection / 16) * 100;
-                hipohondry = (hipohondry / 14) * 100;
-                depress = (depress / 20) * 100;
-                histery = (histery / 26) * 100 + (0,005 * corection * 100 / 26);
-                psychopaty = (psychopaty / 19) * 100 + (0,004 * corection * 100 / 19);
-                paranoy = (paranoy / 14) * 100;
-                psychosteny = (psychosteny / 16) * 100 + (0,01 * corection * 100 / 16) ;
-                schizoide = (schizoide / 20) * 100 + (0,01 * corection * 100 / 20) ;
-                hipomany = (hipomany / 12) * 100 + (0,002 * corection * 100 / 12);
-                lie = (lie / 7) * 100;
-                trueCheck = (trueCheck / 12) * 100;
-                
-                if (lie >= 70){
-                    pLie.textContent = `При високи стойности се поставят под съмнение резултатите от останалите скали.
+            if (lie >= 70) {
+                pLie.textContent = `При високи стойности се поставят под съмнение резултатите от останалите скали.
                     Има тенденция изследваното лице да представи себе си в благоприятна светлина, като показва строго спазване на социалните норми и демонстрира одобряемо от обществото поведение и начин на мислене.  Този стремеж може да бъде мотивиран от няколко причини:
 
 1.Ограничен кръгозор; ситуации или поради наличие на патологии, или случаи, при които индивидът следва стандартно поведение, придържайки се към  ред незначими или имащи съществена ценност за него правила.
@@ -233,21 +242,21 @@
 При лица с висок интелект или значителен житейски опит, този показател не трябва да се разглежда като стремеж да се представят в благоприятна светлина.
 
 В случай, че бъдат регистрирани пикови оценки (високи) и по другите скали, то профила на личността следва да се анализира само в съчетание с установените клинични данни`
-                    pLie.classList = "answer-paragraph-bad"
-                }else if(lie > 40){
-                    pLie.textContent = `Лъжа в средните норми`
-                    pLie.classList = "answer-paragraph-avarage"
-                    if(lie <= 45){
-                        pLie.textContent = pLie.textContent + "\n" + `Доближава се до ниските стойности`
-                        pLie.classList = "answer-paragraph-good"
-                    }
-                }else{
-                    pLie.textContent = `Това са лица извънредно открити, нескриващи своите затруднения, слабости и психопатологични разстройства.  Добре съзнаващи своите затруднения, склонни са по-скоро да преувеличат, отколкото да недооценят степента на междуличностните конфликти, тежестта на установените симптоми, степента на личностна неадекватност. Имат склонност към критично отношение към себе си и обкръжението, което ги води към скептицизъм.  Неудовлетвореността и склонността да преувеличават съществеността на конфликтите прави от ИЛ лесно уязвим и поражда неловкост в междуличностните отношения. `
+                pLie.classList = "answer-paragraph-bad"
+            } else if (lie > 40) {
+                pLie.textContent = `Лъжа в средните норми`
+                pLie.classList = "answer-paragraph-avarage"
+                if (lie <= 45) {
+                    pLie.textContent = pLie.textContent + "\n" + `Доближава се до ниските стойности`
                     pLie.classList = "answer-paragraph-good"
                 }
+            } else {
+                pLie.textContent = `Това са лица извънредно открити, нескриващи своите затруднения, слабости и психопатологични разстройства.  Добре съзнаващи своите затруднения, склонни са по-скоро да преувеличат, отколкото да недооценят степента на междуличностните конфликти, тежестта на установените симптоми, степента на личностна неадекватност. Имат склонност към критично отношение към себе си и обкръжението, което ги води към скептицизъм.  Неудовлетвореността и склонността да преувеличават съществеността на конфликтите прави от ИЛ лесно уязвим и поражда неловкост в междуличностните отношения. `
+                pLie.classList = "answer-paragraph-good"
+            }
 
-                if (trueCheck >= 70) {
-                    pTrueCheck.textContent = `Високите показатели по скала "F" са възможни при следните ситуации:
+            if (trueCheck >= 70) {
+                pTrueCheck.textContent = `Високите показатели по скала "F" са възможни при следните ситуации:
 1.Неконформна личност със своеобразно възприятие и логика  (шизоиден тип личност);
 2.Аутистична личност, изпитваща  трудности в контактите.
 3.Психопатоподобно поведение, склонност към нестандартно поведение или изразено чувство на протест против конвенционалните норми.
@@ -256,38 +265,38 @@
 Във всеки конкретен случай при оценка профила по скала  "F" следва да се подхожда  индивидуално:
 1.Резултатите от тестирането като цяло показват стремеж към умишлено изкривяване (манипулиране) на отговорите.
 2.Следва да се съчетават показателите по скала "F" с клиничното състояние на изследваното лице (възможно е неадекватно възприемане на твърденията).  `
-                    pTrueCheck.classList = "answer-paragraph-bad"
-                }else if(trueCheck > 40){
-                    pTrueCheck.textContent = `Достоверност в средните норми`
-                    pTrueCheck.classList = "answer-paragraph-avarage";
-                    if(trueCheck <= 45){
-                        pTrueCheck.textContent = pTrueCheck.textContent + "\n" + `Доближава се до ниските стойности`
-                        pTrueCheck.classList = "answer-paragraph-good";
-                    }
-                }else{
-                    pTrueCheck.textContent = `Резултатите говорят за достоверност.`
-                    pTrueCheck.classList= "answer-paragraph-good";
+                pTrueCheck.classList = "answer-paragraph-bad"
+            } else if (trueCheck > 40) {
+                pTrueCheck.textContent = `Достоверност в средните норми`
+                pTrueCheck.classList = "answer-paragraph-avarage";
+                if (trueCheck <= 45) {
+                    pTrueCheck.textContent = pTrueCheck.textContent + "\n" + `Доближава се до ниските стойности`
+                    pTrueCheck.classList = "answer-paragraph-good";
                 }
+            } else {
+                pTrueCheck.textContent = `Резултатите говорят за достоверност.`
+                pTrueCheck.classList = "answer-paragraph-good";
+            }
 
-                if (corection >= 70){
-                    pCorection.textContent = `Високите показатели по скала „К“ говори, че: личността определя своето поведение в зависимост от социалното одобрение и е обезпокоена (загрижена) за своя социален статус (авторитет). Склонността да се отрича определено затруднение в междуличностните отношения или в контрола на собственото си поведение, стремеж да се придържа към приетите норми на поведение и да се въздържа от критика на обкръжаващите в степен, до която поведението на обкръжаващите бива вместено в рамките на приетите норми. Те реагират отрицателно спрямо поведението на онези лица, чийто държание явно се отклонява от рамките на традициите и обичаите. Високите стойности показват изопачаване на резултатите с цел защита по отношение на абнормни прояви и несъзнаван контрол на ИЛ върху поведението си. 
+            if (corection >= 70) {
+                pCorection.textContent = `Високите показатели по скала „К“ говори, че: личността определя своето поведение в зависимост от социалното одобрение и е обезпокоена (загрижена) за своя социален статус (авторитет). Склонността да се отрича определено затруднение в междуличностните отношения или в контрола на собственото си поведение, стремеж да се придържа към приетите норми на поведение и да се въздържа от критика на обкръжаващите в степен, до която поведението на обкръжаващите бива вместено в рамките на приетите норми. Те реагират отрицателно спрямо поведението на онези лица, чийто държание явно се отклонява от рамките на традициите и обичаите. Високите стойности показват изопачаване на резултатите с цел защита по отношение на абнормни прояви и несъзнаван контрол на ИЛ върху поведението си. 
 
 Клиника: изразено безпокойство, неувереност в себе си в съчетание с желание да добие благоразположението на другите към себе си.`
-                    pCorection.classList = "answer-paragraph-bad"
-                }else if (corection > 40){
-                    pCorection.textContent = `Скала Корекция е в средните норми`
-                    pCorection.classList = "answer-paragraph-avarage";
-                    if(corection <=45){
-                        pCorection.textContent = pCorection.textContent + "\n" + `Доближава се до ниските стойности`
-                        pCorection.classList = "answer-paragraph-good"
-                    }
-                }else{
-                    pCorection.textContent = `Показва, че ИЛ е благоразумно, доброжелателно, общително и има широк кръгозор. Разполага с голям опит в междуличностните отношения и отрицателните затруднения обуславят у него по-голяма или по-малка предприемчивост и умение да намери правилната линия на поведение. Тъй като тези качества  подобряват социалната адаптация, умерено повишения профил на скала „К“ може да се разглежда като прогностично благоприятен признак. `
+                pCorection.classList = "answer-paragraph-bad"
+            } else if (corection > 40) {
+                pCorection.textContent = `Скала Корекция е в средните норми`
+                pCorection.classList = "answer-paragraph-avarage";
+                if (corection <= 45) {
+                    pCorection.textContent = pCorection.textContent + "\n" + `Доближава се до ниските стойности`
                     pCorection.classList = "answer-paragraph-good"
                 }
+            } else {
+                pCorection.textContent = `Показва, че ИЛ е благоразумно, доброжелателно, общително и има широк кръгозор. Разполага с голям опит в междуличностните отношения и отрицателните затруднения обуславят у него по-голяма или по-малка предприемчивост и умение да намери правилната линия на поведение. Тъй като тези качества  подобряват социалната адаптация, умерено повишения профил на скала „К“ може да се разглежда като прогностично благоприятен признак. `
+                pCorection.classList = "answer-paragraph-good"
+            }
 
-                if (hipohondry >= 70){
-                    pHipohondry.textContent = `Високите показатели по скала  "Hs" говорят за следните възможности:
+            if (hipohondry >= 70) {
+                pHipohondry.textContent = `Високите показатели по скала  "Hs" говорят за следните възможности:
 
 Тревожността на субекта не е насочена към някакви външни социални причини, а към състоянието на собственото здраве. Особена емоционална значимост за личността имат соматичните усещания: общо самочувствие, работоспособност, нарушения на соматичните функции, усещания за конкретна болка.
 
@@ -298,25 +307,25 @@
 2.Повишеното внимание към себе си, обуславя пренасяне отношението към заплахата в междуличностните процеси и се съчетава с недостатъчна способност за контрол на емоциите. 
 
 3.Отбелязва се пик на соматизираната тревожност – склонност към непрекъснати оплаквания, загриженост за физическото си състояние, песимизъм, липса на вяра в добрия изход, подозрителност към медицинската помощ, започва задълбочено и продължително самонаблюдение върху своя организъм, като външно се появява несговорчивост, мнителност, скептицизъм, упоритост, инат.`
-                    pHipohondry.classList = "answer-paragraph-bad"
-                }else if (hipohondry >= 60){
-                    pHipohondry.textContent = `Имате леко отклонение от нормата в графа Хипохондрия, желателно е да работите по вашият проблем.
+                pHipohondry.classList = "answer-paragraph-bad"
+            } else if (hipohondry >= 60) {
+                pHipohondry.textContent = `Имате леко отклонение от нормата в графа Хипохондрия, желателно е да работите по вашият проблем.
 Лицето се доближава до астеноневротичен тип.  Изследваните лица с високи оценки са бавни, пасивни, приемат всичко за вярно, наивни са, покорни на властта, бавно и трудно се приспособяват, трудно понасят промяната в обстановката, леко губят равновесие в социални конфликти.`
-                    pHipohondry.classList = "answer-paragraph-bad"
-                }else if (hipohondry > 40){
-                    pHipohondry.textContent = `Хипохондрията е в нормалните стойности`
-                    pHipohondry.classList = "answer-paragraph-avarage";
-                    if (hipohondry <=45) {
-                        pHipohondry.textContent = pHipohondry.textContent + "\n" + `Доближава се до ниските стойности`
-                        pHipohondry.classList = "answer-paragraph-good"
-                    }
-                }else{
-                    pHipohondry.textContent = `Изследваното лице не изпитва грижа за своето здраве, успешен, активен, енергичен е, успешно разрешава трудностите, използвайки адаптивни форми на поведение. Показва игнориране на телесните оплаквания, подчер­тана самоувереност, независимост.`
+                pHipohondry.classList = "answer-paragraph-bad"
+            } else if (hipohondry > 40) {
+                pHipohondry.textContent = `Хипохондрията е в нормалните стойности`
+                pHipohondry.classList = "answer-paragraph-avarage";
+                if (hipohondry <= 45) {
+                    pHipohondry.textContent = pHipohondry.textContent + "\n" + `Доближава се до ниските стойности`
                     pHipohondry.classList = "answer-paragraph-good"
                 }
+            } else {
+                pHipohondry.textContent = `Изследваното лице не изпитва грижа за своето здраве, успешен, активен, енергичен е, успешно разрешава трудностите, използвайки адаптивни форми на поведение. Показва игнориране на телесните оплаквания, подчер­тана самоувереност, независимост.`
+                pHipohondry.classList = "answer-paragraph-good"
+            }
 
-                if (depress >= 70){
-                    pDepress.textContent = `Високите показатели по скала "D" показват, че е възможно изследваното лице преживява по-висока тревожност, отколкото депресивност.  Усещане за неопределена заплаха, на която характера и времето на появата и не могат да бъдат определени, дифузни опасения и тревожно очакване.
+            if (depress >= 70) {
+                pDepress.textContent = `Високите показатели по скала "D" показват, че е възможно изследваното лице преживява по-висока тревожност, отколкото депресивност.  Усещане за неопределена заплаха, на която характера и времето на появата и не могат да бъдат определени, дифузни опасения и тревожно очакване.
 
 Динамика в развитието на тревожността:
 
@@ -325,50 +334,50 @@
 2.Замяна на тревогата със страхове – усещане за конкретна заплаха и опасност, необратимост на надигаща се катастрофа.
 
 Обкръжението представя изследваното лице като песимист, затворен, мълчалив, ригиден, извънредно сериозен.  Може да изглежда като погълнат от себе си и избягващ контактите.  Всъщност обаче личността изпитва нужда от дълбоки и постоянни контакти с обкръжаващите го.  Личността лесно  идентифицира себе си с отделни хора и явления, и ако това отъждествяване се наруши, то лицето лесно възприема това като катастрофа, водеща до рязък спад в настроението. При това състояние остава само една заплаха – опасността от разрив на отношенията, която предизвиква тревожност. По тази причина, за да не допусне разпад в отношенията, личността се оттегля за да избегне разочарование.  В действителност тези личности се стремят да привлекат и удържат вниманието на обкръжението си, да получат тяхната оценка, стремят се да придобие и запази тези ценности.  В ситуация на фрустрация, за тях са характерни интрапунитивни реакции – чувство за вина, гняв, насочен към себе си, автоагресия, достигаща дори до суицид.  На ситуацията на дезадаптация реагират астенично, инертно, пасивно, отказвайки се от егоцентричните си нагласи в сложна конфликтна ситуация.`
-                    pDepress.classList = "answer-paragraph-bad"
-                }else if (depress >= 60){
-                    pDepress.textContent = `Имате леко отклонение от нормата в графа Депресия, желателно е да работите по вашият проблем
+                pDepress.classList = "answer-paragraph-bad"
+            } else if (depress >= 60) {
+                pDepress.textContent = `Имате леко отклонение от нормата в графа Депресия, желателно е да работите по вашият проблем
 Високи оценки получават чувствителните, склонни към тревожност и ригидни (застойни, затворени) лица. В дейността си те са старателни, добросъвестни, високоморални и отговорни, но не са способни да вземат самостоятелни решения, липсва им увереност в себе си, при малки неуспехи те се отказват и изпадат в отчаяние; емоционална по­тиснатост и чувство за малоценност, интроверсия, склонност към засилено безпокойство; заедно с хипохондрията и хистерията, са характерни за невротично болните.`
-                    pDepress.classList = "answer-paragraph-bad"
-                }else if (depress > 40){
-                    pDepress.textContent = `Депресията е в нормалните стойности`
-                    pDepress.classList = "answer-paragraph-avarage";
-                    if (depress <=45) {
-                        pDepress.textContent = pDepress.textContent + "\n" + `Доближава се до ниските стойности`
-                        pDepress.classList = "answer-paragraph-good"
-                    }
-                }else{
-                    pDepress.textContent = `Ниски нива на тревожност, активност, общителност, усещане за значимост, сила, енергия и бодрост; склонност към весело настроение и ентусиазъм.`
+                pDepress.classList = "answer-paragraph-bad"
+            } else if (depress > 40) {
+                pDepress.textContent = `Депресията е в нормалните стойности`
+                pDepress.classList = "answer-paragraph-avarage";
+                if (depress <= 45) {
+                    pDepress.textContent = pDepress.textContent + "\n" + `Доближава се до ниските стойности`
                     pDepress.classList = "answer-paragraph-good"
                 }
+            } else {
+                pDepress.textContent = `Ниски нива на тревожност, активност, общителност, усещане за значимост, сила, енергия и бодрост; склонност към весело настроение и ентусиазъм.`
+                pDepress.classList = "answer-paragraph-good"
+            }
 
-                if (histery >= 70){
-                    pHistery.textContent = `Високите показатели по скала "Hy" говорят за следните възможности:
+            if (histery >= 70) {
+                pHistery.textContent = `Високите показатели по скала "Hy" говорят за следните възможности:
 
 При изследваното лице се наблюдава способност към усилване на факторите, предизвикващи тревога; демонстративно подчертаване на соматичното неблагополучие, с тенденция да отрича затруднения в социалната адаптация. Високата способност да усилва соматичните си проблеми практически помага за отстраняване на тревожността и същевременно затруднява формирането на достатъчно устойчиво поведение: постоянно влиза в нови роли, задачи и оценки. Хората от този тип не притежават достатъчно развит вътрешен свят, като техните преживявания са ориентирани към външния наблюдател.  Игнорирането на външните отрицателните сигнали им позволява да запазят висока самооценка, стигаща до нарцисизъм. Това поведение може да достигне до безцеремонност и некритичност в оценката на ситуацията.
 
 Хистеричната личност се стреми да бъде в центъра на вниманието, търси признание и поддръжка и се стреми към тях с настойчиви действия.  Проявява склонност да фантазира, егоцентризъм, незрялост и повърхностност на контактите.  В рамките на групата хистеричната личност обикновено затруднява дейността и при разрешаване на някакъв проблем. При нея могат често да се наблюдават декларации за невъзможност продължително време да работи някаква дейност.  По-успешно се проявява в ситуации, при които се налага често да променят ролята си, където се налагат кратковременни контакти, разкривайки способността си лесно да се приспособява към различни типове хора. Хистеричната личност е изключително ефективна в ситуации на кратковременно общуване с нея, тъй като създава силно, магнетично привличане на другите, карайки ги да се възхищават от нея. При конфликти много често използват соматични оплаквания, които имат повърхностен характер.
 
 При клинични случаи може да се наблюдава пълна загуба на способност за формиране на устойчиви нагласи и формиране на поведение на основата на предишен опит; живеят на принципа „проба-грешка“, те изхождат винаги от удовлетворението на своите моментни желания.  На базата на слабостта на задръжките на своите желания, възниква безплановост и хаотичност в поведението.  Декомпенсацията на личността възниква в ситуации на повишени изисквания и натоварване, а също така настъпват и нарушения по отношение на социалните норми, които са длъжни да спазват (напр. в семейството). Обикновено развиват груба конверсионна симптоматика или много фина – промяна във вегетативната регулация, която се явява „копие“ на по-рано видени или чути „страшни“ заболявания (например инфаркт).  Основната цел на поведението на болния е, да получи внимание и поддръжка.`
-                    pHistery.classList = "answer-paragraph-bad"
-                }else if (histery >= 60){
-                    pHistery.textContent = `Имате леко отклонение от нормата в графа Хистерия, желателно е да работите по вашият проблем
+                pHistery.classList = "answer-paragraph-bad"
+            } else if (histery >= 60) {
+                pHistery.textContent = `Имате леко отклонение от нормата в графа Хистерия, желателно е да работите по вашият проблем
 Наблюдава се при лица, склонни към неврологични защитни реакции от конверсионен тип. Те използват симптоми на соматично заболяване като средство за избягване на отговорност (вегетативни разстройства, псевдоневрологични прояви, пристъпи на слабост, безсъзнание, гърчове). Всички проблеми разрешават чрез бягство в болестта. Главната особеност на тези хора се изразява в стремежа им да се оплакват повече отколкото трябва, стремейки се да обърнат вниманието на другите към себе си затова какво е станало, очаквайки възхищение и учудване. Чувствата им обикновено са повърхностни, а интересите им – недълбоки. Имат чести семейни конфликти, склонни са да се надценяват, но имат широк кръг от интереси и добра социална свързаност. По тази причина високите резултати по тази скала и по скалата на психопатията създават благо­ приятен „защитен" фактор — определена сила на „Аз"-а и интерес към социалните групи. `
-                    pHistery.classList = "answer-paragraph-bad"
-                }else if (histery > 40){
-                    pHistery.textContent = `Хипохондрията е в нормалните стойности`
-                    pHistery.classList = "answer-paragraph-avarage";
-                    if (histery <=45) {
-                        pHistery.textContent = pHistery.textContent + "\n" + `Доближава се до ниските стойности`
-                        pHistery.classList = "answer-paragraph-good"
-                    }
-                }else{
-                    pHistery.textContent = `Интроверти, скептици, с недостатъчна способност за спонтанност в социалните контакти. `
+                pHistery.classList = "answer-paragraph-bad"
+            } else if (histery > 40) {
+                pHistery.textContent = `Хипохондрията е в нормалните стойности`
+                pHistery.classList = "answer-paragraph-avarage";
+                if (histery <= 45) {
+                    pHistery.textContent = pHistery.textContent + "\n" + `Доближава се до ниските стойности`
                     pHistery.classList = "answer-paragraph-good"
                 }
+            } else {
+                pHistery.textContent = `Интроверти, скептици, с недостатъчна способност за спонтанност в социалните контакти. `
+                pHistery.classList = "answer-paragraph-good"
+            }
 
-                if (psychopaty >= 70){
-                    pPsychopaty.textContent = `Високите оценки по скала "Pd" говори за следните възможности:
+            if (psychopaty >= 70) {
+                pPsychopaty.textContent = `Високите оценки по скала "Pd" говори за следните възможности:
 
 Психопатоподобно поведение и склонност към асоциални постъпки. При благоприятни условия в промеждутъците между декомпенсациите, психопатични черти могат и да не се наблюдават. При изразяване на чертите, може да се наблюдава пълно пренебрежение на обществените норми, моралните и етични ценности, на установените правила и рамки.  В зависимост от нивото на активност,  това пренебрежение се проявява  в гневни и агресивни реакции или по-скоро враждебни, а може и да се изразят и по-пасивно.  Протестът по отношение на нормите може да е ограничен в семейството или близкото обкръжение, но може да придобие и генерализиран характер.  Такива личности не са в състояние да прогнозират поведението си, да предвиждат последиците от действията си, а освен това те и омаловажават тежестта на последиците от своите действия.  Недостатъчната способност да извличат изводи и да се учат от грешките си ги въвежда в нови и нови конфликтни ситуации, чийто патерн е един и същи.  Това са лица, които се стремят към непосредствена реализация на възникналата подбуда, а недостатъчната способност за прогнозиране им помага да отстранят от себе си тревожността от бъдещо наказание, депресия, чувство за вина. 
 
@@ -381,25 +390,25 @@
 Оплаквания, симптоматика, черти на личността: избухлив, емоционално неустойчив, преживява лошо финансово състояние, усещане за вина, тежко пиянство, незряла личност, възможни са депресия и нетрудоспособност.
 
 Водещи черти: неотзивчивост, незрялост, егоцентричност, недоволство, импулсивност, раболепие, нетърпеливост, емоционална неустойчивост, безотговорност, много силно изразена вербална агресивност. Ако другият партньор се отнася към личността снизходително, то семейството се запазва формално цяло, но това не означава липса на съпружески конфликти – напротив, те са в изобилие.  Тези лица не могат да се адаптират в сексуалните отношения, тъй като са склонни към полови извращения и голямо насилие над партньора. Имат ниска поносимост на фрустрация.  Суицидните опити и агресивните избухвания срещу съпруга, както и алкохолизма са най-честите причини за настаняването им за лечение в болнично заведение.`
-                    pPsychopaty.classList = "answer-paragraph-bad"
-                }else if (psychopaty >= 60){
-                    pPsychopaty.textContent = `Имате леко отклонение от нормата в графа Психопатия, желателно е да работите по вашият проблем
+                pPsychopaty.classList = "answer-paragraph-bad"
+            } else if (psychopaty >= 60) {
+                pPsychopaty.textContent = `Имате леко отклонение от нормата в графа Психопатия, желателно е да работите по вашият проблем
 Високите оценки по тази скала свидетелстват за социална дезадаптация. Такива хора са агресивни, конфликтни, пренебрегват социалните норми и ценности.  Настроението им е неустойчиво, те са обидчиви, възбудими и чувствителни. Всяка една ситуация може да предизвика моментен подем на изразенност на симптоматиката без да има конкретна причина за това. Най-чести отклонения на поведението от социал­ните норми са лъжата, кражбата, алкохолизмът, пристрастност към нар­котици, неморално сексуално поведение. При високи стойности хората са безразсъдни, лекомислени, ексцентрични, самовлюбени, дисконформни. Особено неприятно е съчетанието с високи стой­ности по скалата на параноя - тези хора се характеризират с тежко, агресивно и отблъскващо поведение.`
-                    pPsychopaty.classList = "answer-paragraph-bad"
-                }else if (psychopaty > 40){
-                    pPsychopaty.textContent = `Психопатия е в нормалните стойности`
-                    pPsychopaty.classList = "answer-paragraph-avarage";
-                    if (psychopaty <=45) {
-                        pPsychopaty.textContent = pPsychopaty.textContent + "\n" + `Доближава се до ниските стойности`
-                        pPsychopaty.classList = "answer-paragraph-good"
-                    }
-                }else{
-                    pPsychopaty.textContent = ` Конвенционална личност, високо ниво на идентификация със своя социален статус, наличие на тенденция към запазване на постоянните си интереси, нагласи и цели; ригидност, огра­ниченост на интересите.`
+                pPsychopaty.classList = "answer-paragraph-bad"
+            } else if (psychopaty > 40) {
+                pPsychopaty.textContent = `Психопатия е в нормалните стойности`
+                pPsychopaty.classList = "answer-paragraph-avarage";
+                if (psychopaty <= 45) {
+                    pPsychopaty.textContent = pPsychopaty.textContent + "\n" + `Доближава се до ниските стойности`
                     pPsychopaty.classList = "answer-paragraph-good"
                 }
+            } else {
+                pPsychopaty.textContent = ` Конвенционална личност, високо ниво на идентификация със своя социален статус, наличие на тенденция към запазване на постоянните си интереси, нагласи и цели; ригидност, огра­ниченост на интересите.`
+                pPsychopaty.classList = "answer-paragraph-good"
+            }
 
-                if (paranoy >= 70){
-                    pParanoy.textContent = `В случаите на висока оценка по скала "Ра", е възможно да се наблюдава:
+            if (paranoy >= 70) {
+                pParanoy.textContent = `В случаите на висока оценка по скала "Ра", е възможно да се наблюдава:
 
 Ригидност, склонност към систематизация на миналия опит, подозрителност, обидчивост, упоритост при достигане на целите, педантизъм, склонност да се обвиняват другите в недружелюбност, враждебност и ригидност на афектите. Има сериозна тенденция за наличие на психоза.
 
@@ -416,75 +425,75 @@
 Черти на личността: съчетаване на чувствителност и оплаквания от недостатъците на обкръжаващите ги, от техните враждебни действия; утвърждават морални устои; склонни са към идеаторна разработка на ситуациите. Ригидността на афекта обикновено е свързана с егоистични подбуди. Съпровожда се с интензивна разработка на концепции, които са призвани да обяснят възникването и в същото време да запазят приемливите за индивида представи за собствената си личност.  Тази вторична идеаторна разработка създава впечатление за независима позиция и вярност към своите критерии. В действителност обаче постъпките се определят от външното въздействие, тъй като те се явяват отговор на действията на обкръжаващите, възприемат се афективно, като намеса в живота на личността.разсъжденията на Ил са вътрешно (за него) абсолютно логични. С ригидността на афекта е свързано също продължителното преживяване на собствените успехи, като това преживяване включва гордост от своята ценност, повишено себелюбие и недоволство от отсъствието на признаци за признание от страна на обкръжаващите го. За личността са свойствени: упоритост, заядливост, инат, рационална (практична) житейска платформа, изразено чувство за съперничество, праволинейност.
 
 Клиника: имат свръхценни идеи или налудни концепции. Дори при отсъствие на крайна изразеност (налудност) тяхното поведение много трудно бива коригирано. Склонни са към недоверие към лечението им и се стремят рационално да обосновават своето недоверие към медицината. `
-                    pParanoy.classList = "answer-paragraph-bad"
-                }else if (paranoy >= 60){
-                    pParanoy.textContent = `Имате леко отклонение от нормата в графа Параноя, желателно е да работите по вашият проблем
+                pParanoy.classList = "answer-paragraph-bad"
+            } else if (paranoy >= 60) {
+                pParanoy.textContent = `Имате леко отклонение от нормата в графа Параноя, желателно е да работите по вашият проблем
 Основни черти на хората с високи показатели по тази скала са: склонността им да формулират свръхценни идеи. Тези хора са едностранчиви, агресивни и злопаметни.  Който не е съгласен с тях, който мисли по друг начин, той е глупав човек или направо враг. Своите възгледи те открито се стремят да насаждат и по тази причина имат чести конфликти с обкръжението си.  Собствените си малки неуспехи те непрекъснато и винаги надценяват. Наблюдават се: капризност, чувствителност, раздразнителност, педантичност, своенравност, параноидна подозрителност, прикрита отмъстителност`
-                    pParanoy.classList = "answer-paragraph-bad"
-                }else if (paranoy > 40){
-                    pParanoy.textContent = `Параноята е в нормалните стойности`
-                    pParanoy.classList = "answer-paragraph-avarage";
-                    if (paranoy <=45) {
-                        pParanoy.textContent = pParanoy.textContent + "\n" + `Доближава се до ниските стойности`
-                        pParanoy.classList = "answer-paragraph-good"
-                    }
-                }else{
-                    pParanoy.textContent = `Възможни са следните два варианта:
+                pParanoy.classList = "answer-paragraph-bad"
+            } else if (paranoy > 40) {
+                pParanoy.textContent = `Параноята е в нормалните стойности`
+                pParanoy.classList = "answer-paragraph-avarage";
+                if (paranoy <= 45) {
+                    pParanoy.textContent = pParanoy.textContent + "\n" + `Доближава се до ниските стойности`
+                    pParanoy.classList = "answer-paragraph-good"
+                }
+            } else {
+                pParanoy.textContent = `Възможни са следните два варианта:
 
 1.ИЛ е недоверчиво, много внимателно, страхува се от неприятни последици от своите действия. 
 
 2.ИЛ има гъвкаво мислене и бързо може да промени гледната си точка. `
-                    pParanoy.classList = "answer-paragraph-good"
-                }
+                pParanoy.classList = "answer-paragraph-good"
+            }
 
-                if (psychosteny >= 70){
-                    pPsychosteny.textContent = `Високите резултати по скала "Pt" показват следните възможности:
+            if (psychosteny >= 70) {
+                pPsychosteny.textContent = `Високите резултати по скала "Pt" показват следните възможности:
 
 Конституционална предразположеност към възникване на тревожни реакции, а отстраняването на тази тревога се постига по пътя на формиране на ограничено поведение. Типични прояви са: чувствителност, страх, тревога, немотивирани опасения, неувереност в себе си и в своята компетентност, ниска самооценка, мания. Тревожно-мнителната личност е с нисък фрустрационен праг, трудно понася напрежение, лесно и бързо се самокритикува, боязлива я, изпитва трудности в социалната си адаптация, ригидна е (негъвкава). Има повишено внимание към отрицателните сигнали и се фиксира бързо към тях. Стреми се да удържа в центъра на вниманието си несъществени факти, отчитайки и предвиждайки дори малко вероятни възможности. В резултат на това ситуацията никога не може да бъде достатъчно ясна и определена, което още повече усилва постоянната тревожност.  Неспособността на психостеникът да отдели фона от сигнала, води до увеличаване емоционалната значимост на фона, до отслабване концентрацията на вниманието, до възникване на съмнения и колебания в необходимостта да вземе решение, в резултат възниква допълнителна тревожност и страх по повод вероятните последици от своите действия. Тъй като всеки нов сигнал се възприема като заплаха, личността се стреми да се придържа към известни му, изпитани модели на поведение и реакции – не желае да експериментира.
 
 В своята дейност се ръководи главно от стремежът да избегне неуспех, а не да постигне успех. Поведението му се регулира от страховете пред възможността да навлече върху себе си още опасности в резултат на неправилни постъпки. Този страх лежи в основата на ограничаващото поведение, особено където успехът не е гарантиран. В областите, в които действа психостеникът се стреми да контролира успешно своята дейност с помощта на разработен висок вътрешен стандарт, с който той съпоставя действията си и резултатите от тях. Такива лица биват описвани от обкръжението ум като добросъвестни, внимателно и прецизно изпълняващи задълженията си, нерешителни и сдържани във външните си прояви.
 
 Клиника: склонност към дифузно безпокойство до натрапчивост (обсесивност), напрегнатост, нерешителност, понижен праг на стрес, стресори се явяват ситуации, в които настъпва бърза смяна на фактори, нестандартни и не поддаващи се на планиране и контрол. Декомпенсацията на личността се съпровожда от ритуали и натрапливи страхове.`
-                    pPsychosteny.classList = "answer-paragraph-bad"
-                }else if (psychosteny >= 60){
-                    pPsychosteny.textContent = `Имате леко отклонение от нормата в графа Хипохондрия, желателно е да работите по вашият проблем
+                pPsychosteny.classList = "answer-paragraph-bad"
+            } else if (psychosteny >= 60) {
+                pPsychosteny.textContent = `Имате леко отклонение от нормата в графа Хипохондрия, желателно е да работите по вашият проблем
 Диагностицира се при лица с тревожно-мнителен (тревожно-боязлив) тип характер, за които са свойствени тревожност, плашливост, нерешителност, постоянно съмнение.  Натрапливо поведение под формата на натрапливи мисли или натрапливи действия. Фобии, които включват всички форми на неоснователен страх. Психостенните тенденции могат да се проявят като лека депресия, безпокойство и липса на доверие, инсуфициентност на концентрацията, нерешителност, себенеувереност. При високи стойности указва болестна изразеност на психостенните явления.`
-                    pPsychosteny.classList = "answer-paragraph-bad"
-                }else if (psychosteny > 40){
-                    pPsychosteny.textContent = `Психастенията е в нормалните стойности`
-                    pPsychosteny.classList = "answer-paragraph-avarage";
-                    if (psychosteny <=45) {
-                        pPsychosteny.textContent = pPsychosteny.textContent + "\n" + `Доближава се до ниските стойности`
-                        pPsychosteny.classList = "answer-paragraph-good"
-                    }
-                }else{
-                    pPsychosteny.textContent = `Решителност, гъвкавост, поведение с ниски нива на тревожност, увереност при вземане на решения. `
+                pPsychosteny.classList = "answer-paragraph-bad"
+            } else if (psychosteny > 40) {
+                pPsychosteny.textContent = `Психастенията е в нормалните стойности`
+                pPsychosteny.classList = "answer-paragraph-avarage";
+                if (psychosteny <= 45) {
+                    pPsychosteny.textContent = pPsychosteny.textContent + "\n" + `Доближава се до ниските стойности`
                     pPsychosteny.classList = "answer-paragraph-good"
                 }
+            } else {
+                pPsychosteny.textContent = `Решителност, гъвкавост, поведение с ниски нива на тревожност, увереност при вземане на решения. `
+                pPsychosteny.classList = "answer-paragraph-good"
+            }
 
-                if (schizoide >= 70){
-                    pSchizoide.textContent = `Високите показатели по скалата показват следните възможности:
+            if (schizoide >= 70) {
+                pSchizoide.textContent = `Високите показатели по скалата показват следните възможности:
 
 Шизоиден тип: формира се в тези случаи, при които незначителна фрустрация води до възникване на силни и продължителни отрицателни емоции, а компенсацията се постига по пътя на бягство от обкръжаващата среда към вътрешния свят. Характерни са емоционалната студенина, своеобразното възприятие, необичайните мисли и постъпки, избирателност и повърхностност на контактите. Налично е ориентиране към вътрешните критерии на личността, загуба на способност за интуитивно разбиране на обкръжаващите го, проиграване на роли.За личността е трудно, а понякога невъзможно да види себе си отстрани и да включи себе си в обкръжаващия го свят.  Поведението често е егоцентрично, лишено от емоционална окраска или надменно.  Въпреки, че отрицателните стимули трудно достигат до личността поради нейната шизоидна откъснатост от света, все пак когато те достигат, предизвикват голяма ранимост. В зависимост от силата на неудовлетвореност и ранимостта, тези лица често се оказват източници на напрежение, продължителни и интензивни отрицателни емоции. Те избягват ясни и чисти формулировки и при тях отсъства ясна представа за това, как точно те трябва да се държат в една или друга ситуация или как обкръжението им иска да се държат.  Въпреки, че лицата говорят логично и граматически правилно, техните изказвания могат да създадат впечатление за двусмисленост и недостатъчна разбираемост. Причината за тази особеност се състои в това, че лицето губи контрола върху идеята на разговора в резултат на нарушения в социалната комуникация.  В същото време, тези личности се проявяват твърде силно в области, в които се използва символика (напр., математика). Затрудненията в социализацията още повече могат да усилят усещането за вътрешна напрегнатост., а от тук се усилват и затрудненията в реалната оценка на ситуацията и общата картина на света.  По тази причина тяхната активност протича обикновено извън ситуациите, тъй като тези лица нерядко усещат своята отчужденост и неразбраност, неспособност да станат действителни членове на групата, към която те принадлежат формално.  Като резултат на това се появява амбивалентност в отношенията с другите: от очакване на внимание от страна на другите до страх от хладнина и отхвърляне от тяхна страна.  Те проявяват или извънредно дружелюбие, или необяснима враждебност, при това извънредно интензивните контакти могат да се заменят с внезапни разриви. Дефицита на контакти може да доведе до аутистично фантазиране и формиране на афективно-наситени идеи.`
-                    pSchizoide.classList = "answer-paragraph-bad"
-                }else if (schizoide >= 60){
-                    pSchizoide.textContent = `Имате леко отклонение от нормата в графа Хипохондрия, желателно е да работите по вашият проблем
+                pSchizoide.classList = "answer-paragraph-bad"
+            } else if (schizoide >= 60) {
+                pSchizoide.textContent = `Имате леко отклонение от нормата в графа Хипохондрия, желателно е да работите по вашият проблем
 Лицата с високи показатели по тази скала показват шизоиден тип поведение.  Те са способни да преживяват фини чувства и възприемат абстрактни образи, но радостта или страданието не предизвикват у тях емоционален отклик.  Тази особеност на шизоидния тип поведение се съчетава с повишена чувствителност и емоционална хладнина, аутистична мечтателност, неконтактност, както и отчужденост в междуличностните отношения.  При високи резултати се проявява странен, необичаен начин на мислене и поведение, непредсказуемост на афективните и поведенчески реакции с тенденция за шизоидна психопатия или шизоидни ха­рактеристики на личността. Тази скала има позитивна интеркорелация със скалата за психостения.`
-                    pSchizoide.classList = "answer-paragraph-bad"
-                }else if (schizoide > 40){
-                    pSchizoide.textContent = `Шизоидността е в нормалните стойности`
-                    pSchizoide.classList = "answer-paragraph-avarage";
-                    if (schizoide <=45) {
-                        pSchizoide.textContent = pSchizoide.textContent + "\n" + `Доближава се до ниските стойности`
-                        pSchizoide.classList = "answer-paragraph-good"
-                    }
-                }else{
-                    pSchizoide.textContent = `Показва отсъствие на шизоидни черти в характера.`
+                pSchizoide.classList = "answer-paragraph-bad"
+            } else if (schizoide > 40) {
+                pSchizoide.textContent = `Шизоидността е в нормалните стойности`
+                pSchizoide.classList = "answer-paragraph-avarage";
+                if (schizoide <= 45) {
+                    pSchizoide.textContent = pSchizoide.textContent + "\n" + `Доближава се до ниските стойности`
                     pSchizoide.classList = "answer-paragraph-good"
                 }
+            } else {
+                pSchizoide.textContent = `Показва отсъствие на шизоидни черти в характера.`
+                pSchizoide.classList = "answer-paragraph-good"
+            }
 
-                if (hipomany >= 70){
-                    pHipomany.textContent = `Високите оценки по скала "Ма" показват:
+            if (hipomany >= 70) {
+                pHipomany.textContent = `Високите оценки по скала "Ма" показват:
 
 Повишено настроение, извънредна активност, голямо количество и лекота на възникване планове и идеи, които по-често не се осъществяват; в сила е повишена отвлекаемост и непрекъсната преоценка на своите възможности; разнообразни интереси, широки и повърхностни контакти; свръхпродуктивност на мисленето и действията, прекалена предприемчивост и активност; неустойчива ентусиазираност, конфликтност, избухливост. 
 
@@ -495,526 +504,604 @@
 Оплаквания, черти на личността и симптоми: обстоятелственост, лошо финансово състояние, мания за величие, враждебност, хиперактивност, доминация на майката, религиозност, бъбривост, алкохолизъм, ниска трудоспособност,
 
 Водещи черти: хиперактивност, надутост, високомерност,  в анамнезата присъстват депресия и мания. Склонност към ретроспективен анализ.  Свръхактивност с много проекти, като в фаза на психоза, мисленето е странно.  Когато се сърди, може да избухне и да нагруби. Във фаза на ремисия показва способност за приспособяване към живота.`
-                    pHipomany.classList = "answer-paragraph-bad"
-                }else if (hipomany >= 60){
-                    pHipomany.textContent = `Имате леко отклонение от нормата в графа Хипохондрия, желателно е да работите по вашият проблем
+                pHipomany.classList = "answer-paragraph-bad"
+            } else if (hipomany >= 60) {
+                pHipomany.textContent = `Имате леко отклонение от нормата в графа Хипохондрия, желателно е да работите по вашият проблем
 За лицата с високи показатели по тази скала е характерно приповдигнато настроение независимо от обстоятелствата.  Те са активни, деятелни, енергични, и жизнерадостни.  Харесват работа с чести промени, с лекота и желание контактуват с хората, но интересите им са повърхностни и неустойчиви, за тях не е характерна устойчивостта и последователността, нито дълбочината с която преживяват, общуват или работят. `
-                    pHipomany.classList = "answer-paragraph-bad"
-                }else if (hipomany > 40){
-                    pHipomany.textContent = `Хипохондрията е в нормалните стойности`
-                    pHipomany.classList = "answer-paragraph-avarage";
-                    if (hipomany <=45) {
-                        pHipomany.textContent = pHipomany.textContent + "\n" + `Доближава се до ниските стойности`
-                        pHipomany.classList = "answer-paragraph-good"
-                    }
-                }else{
-                    pHipomany.textContent = `Снижена активност на контакти с хората. Поведението е апатично, липсва инициативност и мотивираност.`
+                pHipomany.classList = "answer-paragraph-bad"
+            } else if (hipomany > 40) {
+                pHipomany.textContent = `Хипохондрията е в нормалните стойности`
+                pHipomany.classList = "answer-paragraph-avarage";
+                if (hipomany <= 45) {
+                    pHipomany.textContent = pHipomany.textContent + "\n" + `Доближава се до ниските стойности`
                     pHipomany.classList = "answer-paragraph-good"
                 }
+            } else {
+                pHipomany.textContent = `Снижена активност на контакти с хората. Поведението е апатично, липсва инициативност и мотивираност.`
+                pHipomany.classList = "answer-paragraph-good"
+            }
 
-                pLegend.textContent = `Оцветеният в черно текст е описание на тестваните зони.
+            pLegend.textContent = `Оцветеният в черно текст е описание на тестваните зони.
 Оцветеният в червено текст означава че вашият резултат е над 70% и е проблемен или е над 60%, което е отклонение от нормата.
 Оцветеният в синьо текст означава че показателите ви са в нормата за проблема.
 Оцветеният в зелено текст означава че се доближавате до минималния праг - под 45% показва в зелено.
 Под 40% стойността ви е в ниските стойности, това не означава, че не може да има проблем в областта ако е в ниските стойности, за някои заболявания това е проблем.`
 
-            }
+        }
 
-        </script>
-    </head>
+    </script>
+</head>
 
-    <body>
-    <center>    
-    <form id="head-form">
+<body>
+    <center>
+        <form id="head-form">
             Минесотски многофакторен личностен въпросник (MMPI)
-    <br>
+            <br>
             (модификация „Мini-Мult“)
-    </form>
-
-    <form id="quiz-form">
-        <p>Въпрос 1: Имам добър апетит.</p>
-        <input type="radio" id="q1yes" name="q1" value="yes">
-        <label for="q1yes">Да</label>
-        <input type="radio" id="q1no" name="q1" value="no">
-        <label for="no">Не</label>
-
-        <p>Въпрос 2: Събуждам се свеж и отпочинал.</p>
-        <input type="radio" id="q2yes" name="q2" value="yes">
-        <label for="q2yes">Да</label>
-        <input type="radio" id="q2no" name="q2" value="no">
-        <label for="q2no">Не</label>
-
-        <p>Въпрос 3: Всекидневието ми е запълнено с интересни за мен събития.</p>
-        <input type="radio" id="q3yes" name="q3" value="yes">
-        <label for="q3yes">Да</label>
-        <input type="radio" id="q3no" name="q3" value="no">
-        <label for="q3no">Не</label>
-
-        <p>Въпрос 4: Работя с цената на много напрежение.</p>
-        <input type="radio" id="q4yes" name="q4" value="yes">
-        <label for="q4yes">Да</label>
-        <input type="radio" id="q4no" name="q4" value="no">
-        <label for="q4no">Не</label>
-
-        <p>Въпрос 5: Понякога имам такива мисли, че по-добре да не говоря за тях.</p>
-        <input type="radio" id="q5yes" name="q5" value="yes">
-        <label for="q5yes">Да</label>
-        <input type="radio" id="q5no" name="q5" value="no">
-        <label for="q5no">Не</label>
-
-        <p>Въпрос 6: Рядко имам запек.</p>
-        <input type="radio" id="q6yes" name="q6" value="yes">
-        <label for="q6yes">Да</label>
-        <input type="radio" id="q6no" name="q6" value="no">
-        <label for="q6no">Не</label>
-
-        <p>Въпрос 7: Понякога много ми се иска да напусна дома си.</p>
-        <input type="radio" id="q7yes" name="q7" value="yes">
-        <label for="q7yes">Да</label>
-        <input type="radio" id="q7no" name="q7" value="no">
-        <label for="q7no">Не</label>
-
-        <p>Въпрос 8: Понякога има пристъпи на смях и плач, които не контролирам.</p>
-        <input type="radio" id="q8yes" name="q8" value="yes">
-        <label for="q8yes">Да</label>
-        <input type="radio" id="q8no" name="q8" value="no">
-        <label for="q8no">Не</label>
-
-        <p>Въпрос 9: Безпокоят ме пристъпи на прилошаване и повръщане.</p>
-        <input type="radio" id="q9yes" name="q9" value="yes">
-        <label for="q9yes">Да</label>
-        <input type="radio" id="q9no" name="q9" value="no">
-        <label for="q9no">Не</label>
-
-        <p>Въпрос 10: Струва ми се, че няма човек, който да ме разбира.</p>
-        <input type="radio" id="q10yes" name="q10" value="yes">
-        <label for="q10yes">Да</label>
-        <input type="radio" id="q10no" name="q10" value="no">
-        <label for="q10no">Не</label>
-
-        <p>Въпрос 11: Понякога ми се иска да ругая себе си.</p>
-        <input type="radio" id="q11yes" name="q11" value="yes">
-        <label for="q11yes">Да</label>
-        <input type="radio" id="q11no" name="q11" value="no">
-        <label for="q11no">Не</label>
-
-        <p>Въпрос 12: Почита всяка нощ сънувам кошмари.</p>
-        <input type="radio" id="q12yes" name="q12" value="yes">
-        <label for="q12yes">Да</label>
-        <input type="radio" id="q12no" name="q12" value="no">
-        <label for="q12no">Не</label>
-
-        <p>Въпрос 13: Забелязвам, че ми е трудно да се съсредоточавам.</p>
-        <input type="radio" id="q13yes" name="q13" value="yes">
-        <label for="q13yes">Да</label>
-        <input type="radio" id="q13no" name="q13" value="no">
-        <label for="q13no">Не</label>
-
-        <p>Въпрос 14: Имам странни, необикновени преживявания.</p>
-        <input type="radio" id="q14yes" name="q14" value="yes">
-        <label for="q14yes">Да</label>
-        <input type="radio" id="q14no" name="q14" value="no">
-        <label for="q14no">Не</label>
-
-        <p>Въпрос 15: Ако хората не интриганстват срещу мен, мога да постигна повече.</p>
-        <input type="radio" id="q15yes" name="q15" value="yes">
-        <label for="q15yes">Да</label>
-        <input type="radio" id="q15no" name="q15" value="no">
-        <label for="q15no">Не</label>
-
-        <p>Въпрос 16: Имаше време, когато извършвах дребни кражби.</p>
-        <input type="radio" id="q16yes" name="q16" value="yes">
-        <label for="q16yes">Да</label>
-        <input type="radio" id="q16no" name="q16" value="no">
-        <label for="q16no">Не</label>
-
-        <p>Въпрос 17: Имам периоди, в които не мога да се заловя за работа.</p>
-        <input type="radio" id="q17yes" name="q17" value="yes">
-        <label for="q17yes">Да</label>
-        <input type="radio" id="q17no" name="q17" value="no">
-        <label for="q17no">Не</label>
-
-        <p>Въпрос 18: Имам накъсан и неспокоен сън.</p>
-        <input type="radio" id="q18yes" name="q18" value="yes">
-        <label for="q18yes">Да</label>
-        <input type="radio" id="q18no" name="q18" value="no">
-        <label for="q18no">Не</label>
-
-        <p>Въпрос 19: Когато съм сред хора, чувам странни неща.</p>
-        <input type="radio" id="q19yes" name="q19" value="yes">
-        <label for="q19yes">Да</label>
-        <input type="radio" id="q19no" name="q19" value="no">
-        <label for="q19no">Не</label>
-
-        <p>Въпрос 20: Повечето хора, които ме познават, се отнасят с мен добре.</p>
-        <input type="radio" id="q20yes" name="q20" value="yes">
-        <label for="q20yes">Да</label>
-        <input type="radio" id="q20no" name="q20" value="no">
-        <label for="q20no">Не</label>
-
-        <p>Въпрос 21: Често ми се налага да слушам хора, които знаят по-малко от мен.</p>
-        <input type="radio" id="q21yes" name="q21" value="yes">
-        <label for="q21yes">Да</label>
-        <input type="radio" id="q21no" name="q21" value="no">
-        <label for="q21no">Не</label>
-
-        <p>Въпрос 22: Струва ми се, че другите са по-щастливи от мен.</p>
-        <input type="radio" id="q22yes" name="q22" value="yes">
-        <label for="q22yes">Да</label>
-        <input type="radio" id="q22no" name="q22" value="no">
-        <label for="q22no">Не</label>
-
-        <p>Въпрос 23: Мисля, че хората преувеличават нещастията си,за да постигнат съчувствие и помощ.</p>
-        <input type="radio" id="q23yes" name="q23" value="yes">
-        <label for="q23yes">Да</label>
-        <input type="radio" id="q23no" name="q23" value="no">
-        <label for="q23no">Не</label>
-
-        <p>Въпрос 24: Понякога сервилнича. (мазня се)</p>
-        <input type="radio" id="q24yes" name="q24" value="yes">
-        <label for="q24yes">Да</label>
-        <input type="radio" id="q24no" name="q24" value="no">
-        <label for="q24no">Не</label>
-
-        <p>Въпрос 25: Убеден съм, че не ми достига увереност в себе си.</p>
-        <input type="radio" id="q25yes" name="q25" value="yes">
-        <label for="q25yes">Да</label>
-        <input type="radio" id="q25no" name="q25" value="no">
-        <label for="q25no">Не</label>
-
-        <p>Въпрос 26: Много рядко имам мускулни спазми или потрепервания.</p>
-        <input type="radio" id="q26yes" name="q26" value="yes">
-        <label for="q26yes">Да</label>
-        <input type="radio" id="q26no" name="q26" value="no">
-        <label for="q26no">Не</label>
-
-        <p>Въпрос 27: Постоянно имам чувството, че съм направил нещо недобро.</p>
-        <input type="radio" id="q27yes" name="q27" value="yes">
-        <label for="q27yes">Да</label>
-        <input type="radio" id="q27no" name="q27" value="no">
-        <label for="q27no">Не</label>
-
-        <p>Въпрос 28: Повечето време се чувствам щастлив и доволен от живота.</p>
-        <input type="radio" id="q28yes" name="q28" value="yes">
-        <label for="q28yes">Да</label>
-        <input type="radio" id="q28no" name="q28" value="no">
-        <label for="q28no">Не</label>
-
-        <p>Въпрос 29: Някои хора така обичат да командват, че на мен ми се иска да направя точно обратното, дори и да знам, че са прави.</p>
-        <input type="radio" id="q29yes" name="q29" value="yes">
-        <label for="q29yes">Да</label>
-        <input type="radio" id="q29no" name="q29" value="no">
-        <label for="q29no">Не</label>
-
-        <p>Въпрос 30: Знам, че има хора, които са настроени срещу мен.</p>
-        <input type="radio" id="q30yes" name="q30" value="yes">
-        <label for="q30yes">Да</label>
-        <input type="radio" id="q30no" name="q30" value="no">
-        <label for="q30no">Не</label>
-
-        <p>Въпрос 31: Мисля, че повечето хора предпочитат да постъпят нечестно заради изгодата, отколкото да изпуснат случая.</p>
-        <input type="radio" id="q31yes" name="q31" value="yes">
-        <label for="q31yes">Да</label>
-        <input type="radio" id="q31no" name="q31" value="no">
-        <label for="q31no">Не</label>
-
-        <p>Въпрос 32: Много често ме безпокои жлъчката.</p>
-        <input type="radio" id="q32yes" name="q32" value="yes">
-        <label for="q32yes">Да</label>
-        <input type="radio" id="q32no" name="q32" value="no">
-        <label for="q32no">Не</label>
-
-        <p>Въпрос 33: Често не мога да разбера защо съм бил толкова вироглав.</p>
-        <input type="radio" id="q33yes" name="q33" value="yes">
-        <label for="q33yes">Да</label>
-        <input type="radio" id="q33no" name="q33" value="no">
-        <label for="q33no">Не</label>
-
-        <p>Въпрос 34: Понякога мислите ми текат бързо и не успявам да ги изрека.</p>
-        <input type="radio" id="q34yes" name="q34" value="yes">
-        <label for="q34yes">Да</label>
-        <input type="radio" id="q34no" name="q34" value="no">
-        <label for="q34no">Не</label>
-
-        <p>Въпрос 35: Мисля, че в моя дом животът е не по-лош, отколкото при повечето мои познати.</p>
-        <input type="radio" id="q35yes" name="q35" value="yes">
-        <label for="q35yes">Да</label>
-        <input type="radio" id="q35no" name="q35" value="no">
-        <label for="q35no">Не</label>
-
-        <p>Въпрос 36: Понякога съм убеден в собствената си безполезност.</p>
-        <input type="radio" id="q36yes" name="q36" value="yes">
-        <label for="q36yes">Да</label>
-        <input type="radio" id="q36no" name="q36" value="no">
-        <label for="q36no">Не</label>
-
-        <p>Въпрос 37: В последните години самочувствието ми е лошо.</p>
-        <input type="radio" id="q37yes" name="q37" value="yes">
-        <label for="q37yes">Да</label>
-        <input type="radio" id="q37no" name="q37" value="no">
-        <label for="q37no">Не</label>
-
-        <p>Въпрос 38: Понякога не съзнавам какво правя.</p>
-        <input type="radio" id="q38yes" name="q38" value="yes">
-        <label for="q38yes">Да</label>
-        <input type="radio" id="q38no" name="q38" value="no">
-        <label for="q38no">Не</label>
-
-        <p>Въпрос 39: Мисля, че често са ме наказвали незаслужено.</p>
-        <input type="radio" id="q39yes" name="q39" value="yes">
-        <label for="q39yes">Да</label>
-        <input type="radio" id="q39no" name="q39" value="no">
-        <label for="q39no">Не</label>
-
-        <p>Въпрос 40: В момента се чувствам най-добре от когато и да било в живота ми.</p>
-        <input type="radio" id="q40yes" name="q40" value="yes">
-        <label for="q40yes">Да</label>
-        <input type="radio" id="q40no" name="q40" value="no">
-        <label for="q40no">Не</label>
-
-        <p>Въпрос 41: Не се безпокоя, ако говорят за мен.</p>
-        <input type="radio" id="q41yes" name="q41" value="yes">
-        <label for="q41yes">Да</label>
-        <input type="radio" id="q41no" name="q41" value="no">
-        <label for="q41no">Не</label>
-
-        <p>Въпрос 42: Паметта ми работи добре.</p>
-        <input type="radio" id="q42yes" name="q42" value="yes">
-        <label for="q42yes">Да</label>
-        <input type="radio" id="q42no" name="q42" value="no">
-        <label for="q42no">Не</label>
-
-        <p>Въпрос 43: Трудно ми е да поддържам разговор с хора, с които току-що съм се запознал.</p>
-        <input type="radio" id="q43yes" name="q43" value="yes">
-        <label for="q43yes">Да</label>
-        <input type="radio" id="q43no" name="q43" value="no">
-        <label for="q43no">Не</label>
-
-        <p>Въпрос 44: По-голяма част от времето чувствам слабост.</p>
-        <input type="radio" id="q44yes" name="q44" value="yes">
-        <label for="q44yes">Да</label>
-        <input type="radio" id="q44no" name="q44" value="no">
-        <label for="q44no">Не</label>
-
-        <p>Въпрос 45: Рядко имам главоболие.</p>
-        <input type="radio" id="q45yes" name="q45" value="yes">
-        <label for="q45yes">Да</label>
-        <input type="radio" id="q45no" name="q45" value="no">
-        <label for="q45no">Не</label>
-
-        <p>Въпрос 46: Не ми е трудно да пазя равновесие при ходене.</p>
-        <input type="radio" id="q46yes" name="q46" value="yes">
-        <label for="q46yes">Да</label>
-        <input type="radio" id="q46no" name="q46" value="no">
-        <label for="q46no">Не</label>
-
-        <p>Въпрос 47: Не харесвам всичко, което зная.</p>
-        <input type="radio" id="q47yes" name="q47" value="yes">
-        <label for="q47yes">Да</label>
-        <input type="radio" id="q47no" name="q47" value="no">
-        <label for="q47no">Не</label>
-
-        <p>Въпрос 48: Има хора, които се опитват да ми вземат идеите.</p>
-        <input type="radio" id="q48yes" name="q48" value="yes">
-        <label for="q48yes">Да</label>
-        <input type="radio" id="q48no" name="q48" value="no">
-        <label for="q48no">Не</label>
-
-        <p>Въпрос 49: Уверен съм, че няма прошка за моите постъпки.</p>
-        <input type="radio" id="q49yes" name="q49" value="yes">
-        <label for="q49yes">Да</label>
-        <input type="radio" id="q49no" name="q49" value="no">
-        <label for="q49no">Не</label>
-
-        <p>Въпрос 50: Иска ми се да не съм толкова срамежлив.</p>
-        <input type="radio" id="q50yes" name="q50" value="yes">
-        <label for="q50yes">Да</label>
-        <input type="radio" id="q50no" name="q50" value="no">
-        <label for="q50no">Не</label>
-
-        <p>Въпрос 51: Често забелязвам, че се тревожа за нещо.</p>
-        <input type="radio" id="q51yes" name="q51" value="yes">
-        <label for="q51yes">Да</label>
-        <input type="radio" id="q51no" name="q51" value="no">
-        <label for="q51no">Не</label>
-
-        <p>Въпрос 52: Моите родители често не одобряваха познанствата ми.</p>
-        <input type="radio" id="q52yes" name="q52" value="yes">
-        <label for="q52yes">Да</label>
-        <input type="radio" id="q52no" name="q52" value="no">
-        <label for="q52no">Не</label>
-
-        <p>Въпрос 53: Понякога мога да клюкарствам.</p>
-        <input type="radio" id="q53yes" name="q53" value="yes">
-        <label for="q53yes">Да</label>
-        <input type="radio" id="q53no" name="q53" value="no">
-        <label for="q53no">Не</label>
-
-        <p>Въпрос 54: Понякога чувствам, че много лесно взимам  решения.</p>
-        <input type="radio" id="q54yes" name="q54" value="yes">
-        <label for="q54yes">Да</label>
-        <input type="radio" id="q54no" name="q54" value="no">
-        <label for="q54no">Не</label>
-
-        <p>Въпрос 55: Никога не съм забелязвал, че имам сърцебиене или задух.</p>
-        <input type="radio" id="q55yes" name="q55" value="yes">
-        <label for="q55yes">Да</label>
-        <input type="radio" id="q55no" name="q55" value="no">
-        <label for="q55no">Не</label>
-
-        <p>Въпрос 56: Лесно излизам от кожата си, но бързо се успокоявам.</p>
-        <input type="radio" id="q56yes" name="q56" value="yes">
-        <label for="q56yes">Да</label>
-        <input type="radio" id="q56no" name="q56" value="no">
-        <label for="q56no">Не</label>
-
-        <p>Въпрос 57: Имам периоди на толкова силно безпокойство, че не ме сдържа на едно място.</p>
-        <input type="radio" id="q57yes" name="q57" value="yes">
-        <label for="q57yes">Да</label>
-        <input type="radio" id="q57no" name="q57" value="no">
-        <label for="q57no">Не</label>
-
-        <p>Въпрос 58: Често вкъщи се заяждат с мен без основание.</p>
-        <input type="radio" id="q58yes" name="q58" value="yes">
-        <label for="q58yes">Да</label>
-        <input type="radio" id="q58no" name="q58" value="no">
-        <label for="q58no">Не</label>
-
-        <p>Въпрос 59: На никого не му влиза в работата това, което ми се случва.</p>
-        <input type="radio" id="q59yes" name="q59" value="yes">
-        <label for="q59yes">Да</label>
-        <input type="radio" id="q59no" name="q59" value="no">
-        <label for="q59no">Не</label>
-
-        <p>Въпрос 60: Не упреквам хората, които се възползват от грешките на другите.</p>
-        <input type="radio" id="q60yes" name="q60" value="yes">
-        <label for="q60yes">Да</label>
-        <input type="radio" id="q60no" name="q60" value="no">
-        <label for="q60no">Не</label>
-
-        <p>Въпрос 61: Понякога съм изпълнен с енергия.</p>
-        <input type="radio" id="q61yes" name="q61" value="yes">
-        <label for="q61yes">Да</label>
-        <input type="radio" id="q61no" name="q61" value="no">
-        <label for="q61no">Не</label>
-
-        <p>Въпрос 62: В последно време се е влошило зрението ми.</p>
-        <input type="radio" id="q62yes" name="q62" value="yes">
-        <label for="q62yes">Да</label>
-        <input type="radio" id="q62no" name="q62" value="no">
-        <label for="q62no">Не</label>
-
-        <p>Въпрос 63: Често имам шум в ушите.</p>
-        <input type="radio" id="q63yes" name="q63" value="yes">
-        <label for="q63yes">Да</label>
-        <input type="radio" id="q63no" name="q63" value="no">
-        <label for="q63no">Не</label>
-
-        <p>Въпрос 64: Някой се опитва да въздейства на мислите ми.</p>
-        <input type="radio" id="q64yes" name="q64" value="yes">
-        <label for="q64yes">Да</label>
-        <input type="radio" id="q64no" name="q64" value="no">
-        <label for="q64no">Не</label>
-
-        <p>Въпрос 65: Имам периоди на безпричинна радост.</p>
-        <input type="radio" id="q65yes" name="q65" value="yes">
-        <label for="q65yes">Да</label>
-        <input type="radio" id="q65no" name="q65" value="no">
-        <label for="q65no">Не</label>
-
-        <p>Въпрос 66: Почти винаги се чувствам самотен, дори когато съм сред хора.</p>
-        <input type="radio" id="q66yes" name="q66" value="yes">
-        <label for="q66yes">Да</label>
-        <input type="radio" id="q66no" name="q66" value="no">
-        <label for="q66no">Не</label>
-
-        <p>Въпрос 67: Мисля, че всеки би могъл да излъже, за да избегне неприятности.</p>
-        <input type="radio" id="q67yes" name="q67" value="yes">
-        <label for="q67yes">Да</label>
-        <input type="radio" id="q67no" name="q67" value="no">
-        <label for="q67no">Не</label>
-
-        <p>Въпрос 68: Аз съм по-обидчив от другите. </p>
-        <input type="radio" id="q68yes" name="q68" value="yes">
-        <label for="q68yes">Да</label>
-        <input type="radio" id="q68no" name="q68" value="no">
-        <label for="q68no">Не</label>
-
-        <p>Въпрос 69: Понякога главата ми работи необичайно забавено. </p>
-        <input type="radio" id="q69yes" name="q69" value="yes">
-        <label for="q69yes">Да</label>
-        <input type="radio" id="q69no" name="q69" value="no">
-        <label for="q69no">Не</label>
-
-        <p>Въпрос 70: Хората често ме разочароват. </p>
-        <input type="radio" id="q70yes" name="q70" value="yes">
-        <label for="q70yes">Да</label>
-        <input type="radio" id="q70no" name="q70" value="no">
-        <label for="q70no">Не</label>
-
-        <p>Въпрос 71: Злоупотребявам с алкохолни напитки.</p>
-        <input type="radio" id="q71yes" name="q71" value="yes">
-        <label for="q71yes">Да</label>
-        <input type="radio" id="q71no" name="q71" value="no">
-        <label for="q71no">Не</label>
-    </form>
-    <button onclick="check()" style="width: 640px; font-size: larger; border: black double 12px;">Резултати</button>
-    <form id="answer-form">
-        <p id="legend" class="wiki-paragraph"></p>
-        <p id="lie" class=""></p>
-        <p id="trueCheck" class=""></p>
-        <p id="corection" class=""></p>
-        <p class="wiki-paragraph">
-            Хипохондрията или психосоматично разстройство (понякога накратко в медицинския жаргон психосоматика), се характеризира с необоснована загриженост и дори маниакален страх за собственото здраве и нереалистичното убеждение, че физическите белези и симптоми сочат сериозно соматично заболяване, въпреки рационалните уверения, че не съществува подобна болест, най-вече притеснения за наличието на сериозно заболяване. Често се наблюдава дори когато лекар е прегледал страдащия от хипохондрия и го е уверил, че опасенията му са неоснователни или неадекватно пресилени.
-
-Терминът е съставен от наименованието на гръцки: hypochondria, hypo - под и chondros - гръдна кост, с което се обозначава нервно заболяване, в резултат на което човек е мрачен, постоянно мислещ за здравето си, за своите болести и произтичащите от това лични нещастия. 
-        </p>
-        <p id="hipohondry" class=""></p>
-        <p class="wiki-paragraph">
-            Депресията в общия случай е чувство на меланхолия, тъга, отчаяние, безпомощност и унилост, което може да трае от няколко часа до няколко дни. Ако е налице дълготрайно чувство на тъга и отчаяние[1][2], може да става въпрос за заболяване, известно като клинична депресия.
-
-Депресията може да бъде провокирана от различни фактори – биологични, психични и социални (като раждане, загуба на близък човек, развод). Признаците са липса на енергия, липса на апетит, безсъние, апатия и мисли за самоубийство, но също повишена емоционалност, свръхактивност, раздразнителност, безпричинна еуфория. 
-        </p>
-        <p id="depress" class=""></p>
-        <p class="wiki-paragraph">
-            Хистерия (от гръцки: ὑστέρα, hystera – матка) е историческото наименование на вид невроза, изразяваща се соматично. Хистеричните кризи се състоят в бурни кон­вулсии, парализа, загуба на зрението или речта и така нататък не почиват на никаква органична основа (например субектът казва, че не може вече да ходи, но рефлексите му са запазени); от друга страна, те почти винаги настъпват в присъствието на много хора. Дълго време неразбирани (в Средните векове ги приписвали на обсебеност от бесове, в XIX век – на сексуална разюзданост), те били грижливо описани от Жан Шарко, а после обяснени от Зигмунд Фройд.
-
-Хистерията е експресивна невроза. Кризите са натоварени с определено значение. Тя е израз на конфликти, които се дължат на отчаяната нужда или усилие за разделяне с определен обект и в същото време отчаяната нужда и опит за (отново) заедност, тъй като е налице интернализация на обекта и дори в някои случаи идентификация с този отхвърлен обект, като любовните отношения са често хистерични (Фейърбърн, 1952); хистерията е екстернализация на приет обект и интернализация на отхвърлен обект. Фейърбърн определя хистерията като защитен механизъм.
-
-Кризите имат стойността на език: една 21-годишна девойка, лекувана от Бройер и Фройд през 1882 г., не можела вече да пие от чаша; анализът разкрил, че това поведение е несъзнаван протест срещу постъпката на предишна гувернантка, която давала на кучето си да пие от чаша. Хистеричните са емотивни и чувствителни индивиди, с буйно въображение, внушаеми, пластични, искащи винаги да се харесват. Несмеейки да утвърдят личността си, те вечно играят ролята, която са си избрали. Те изтласкват в несъзнаваното своите забранени афекти и последните намират израз като се преобразуват (чрез конверсия) в телесни симптоми. Хистеричните не са симуланти, а невротици, които се лекуват ефикасно с психоанализа. </p>
-        <p id="histery" class=""></p>
-        <p class="wiki-paragraph">
-            Диссоциалното разстройство на личността, известно и като антисоциално личностно разстройство (психопатия) е дефинирано от DSM на американската психиатрична асоциация като "широко разпространен модел на насилие над правата на другите, който започва в детството или в ранната младост и продължва в зрялата възраст." Лъжата и манипулацията се разглеждат като същностни черти на разстройството. По тази причина е по-важно при правенето на диагнозата да се събере материал от други източници, отколкото индивида да бъде диагностициран. Също така, обикновено се приема, че индивидите трябва да са на 18 години или по-големи, както и да имат документирана история на разстройствата в поведението преди 15-годишна възраст.[1] Хората с диссоциално разстройство на личността понякога са свързвани със социопатите и психопатите, макар че някои изследователи смятат, че тези термини не са синомоми на разстройството. 
-        </p>
-        <p id="psychopaty" class=""></p>
-        <p class="wiki-paragraph">
-            Параноята е психично състояние, характеризиращо се с повишена тревожност и ирационален страх, нерядко със следи на налудност за преследване и/или придружено от вяра в конспирация. Параноята е болестно състояние, при което човек има усещането, че някой непрекъснато го следи и преследва.
-
-В медицината терминът може да означава психично заболяване, характеризиращо се със специфична система от илюзии, без нарушения на когнитивните функции.
-
-Думата произлиза от гръцки език (παράνοια) и означава лудост.
-
-Параноя – представлява патологично надценяване на собствения Аз-образ (представата на личността за себе си). Тя се разглежда като вид невроза, която се дължи на силно развито чувство за малоценност, съпроводено с гордост от постигнато. Този вид комплекс се свързва с това, че човек мечтае да участва в ситуации, в които той е най-добрият. Подобни действия разделят личността от реалните отношения. В нея се развива огромна гордост, недоверчивост, мнителност, измислена мания за преследване, които правят този човек лесно раним, егоистичен, взискателен и предявяващ претенции да бъде харесван. Човек с такъв комплекс, при контакт с околните е агресивен, предирчив, не желае и не може да се впише в общите изисквания. Параноикът е труден за разбиране. Преценките му са деформирани и изменени. Възприема дори най-малките неща като сложни. Импулсивен и свръхемоционален. Подобен тип хора трудно се приемат от околните, защото смятат, че всичко им е позволено. От привидно мнимо спокойствие те бързо преминават в активно и се стремят да доминират над околните като се стремят да внушават своите оценки или мнения. Параноикът крие в себе си враждебност, но в същото време демонстрира омраза и в много случаи деспотизъм. Това е провокирано от патологичното надценяване над собствената личност. Такъв тип хора споделят всички свои виждания пред останалите като се стремят да ги накарат да им партнират. 
-        </p>
-        <p id="paranoy" class=""></p>
-        <p class="wiki-paragraph">
-            Психастения това е психологическо разстройство, характеризиращо се с проява на фобии, мании, принуди и безпокойство. Този термин е измислен от Джанет през 1903 г. с цел да се дефинират клинични картини, в които основно присъстват обсесии и компулсии.
-
-            Въпреки че тези две прояви са основните при психастенията, промяната включва други симптоми като тикове, фобия и деперсонализация. Това разстройство се тълкува като дефицит на психологическо напрежение, което може да бъде хронично, дегенеративно и наследствено.
-        </p>
-        <p id="psychosteny" class=""></p>
-        <p class="wiki-paragraph">
-            Шизоидното личностно разстройство (SPD) се характеризира с безразличие към социалните взаимоотношения и липса на интерес към създаване на контакти. Хората с шизоидно разстройство на личността са потайни и често водят затворен начин на живот, но не са самотни и не страдат от това. Апатични са и биват определяни като студени и особени хора. Разстройството се проявява в най-често в ранна зряла възраст. Носителите му създават свое ежедневие и интереси, често ги вълнуват отвлечени, абстрактни въроси. Нямат близки  отношения с околните, дори с най-близките и роднините си. Обикновено са отдалечени емоционално и могат да са предразположени към фантазии и мечти. За тях не те, а останалите изглеждат странни и неразбрани. Те могат да се справят добре, ако извършват самостоятелна работа, която за другите би била непоносимо самотна и откъсната. Шизоидното разстройство често бива бъркано с шизофрения, макар да има значителна разлика. Първите поддържат връзка с реалността и се справят добре в живота, избирайки работа, която изисква да бъдат сами през по-голяма част от времето. При SPD способността за създаване на връзка с другите е ограничена. Около 3,1 до 4,9% са засегнатите с шизоидно разстройство на личността. По-често срещано е сред мъжете. SPD попада в групата на т.нар „ексцентрични личностни разстройства“, познати още като „клъстър А“.
-        </p>
-        <p id="schizoide" class=""></p>
-        <p class="wiki-paragraph">
-            Хипоманията (буквално "под мания" или по-слаб вид мания) е състояние, характеризиращо се с настроение, повишено над нормалното, но не толкова екстремно, че да причини увреждане — най-важната характеристика, отличаваща го от манията. То може да включва дразнене, но по-малко от пълната мания.
-
-Древногръцкият лекар Хипократ нарича един тип личност "хипоманичен". През 19-ти век в психиатрията манията имаше широк смисъл на лудост, а хипоманията се приравняваше от някои към понятията за "частична лудост". По-специфична употреба е направена от немския невро-психиатър Emanuel Ernst Mendel през 1881 г., който пише: "Аз препоръчвам, като се има предвид думата, използвана от Хипократ, за онези типове мания, които показват по-малко тежка феноменологична картина, да наричаме с термина хипомания".
-        </p>
-        <p id="hipomany" class=""></p>
-    </form>
+        </form>
+
+        <form id="quiz-form">
+            <p>Въпрос 1: Имам добър апетит.</p>
+            <input type="radio" id="q1yes" name="q1" value="yes">
+            <label for="q1yes">Да</label>
+            <input type="radio" id="q1no" name="q1" value="no">
+            <label for="no">Не</label>
+
+            <p>Въпрос 2: Събуждам се свеж и отпочинал.</p>
+            <input type="radio" id="q2yes" name="q2" value="yes">
+            <label for="q2yes">Да</label>
+            <input type="radio" id="q2no" name="q2" value="no">
+            <label for="q2no">Не</label>
+
+            <p>Въпрос 3: Всекидневието ми е запълнено с интересни за мен събития.</p>
+            <input type="radio" id="q3yes" name="q3" value="yes">
+            <label for="q3yes">Да</label>
+            <input type="radio" id="q3no" name="q3" value="no">
+            <label for="q3no">Не</label>
+
+            <p>Въпрос 4: Работя с цената на много напрежение.</p>
+            <input type="radio" id="q4yes" name="q4" value="yes">
+            <label for="q4yes">Да</label>
+            <input type="radio" id="q4no" name="q4" value="no">
+            <label for="q4no">Не</label>
+
+            <p>Въпрос 5: Понякога имам такива мисли, че по-добре да не говоря за тях.</p>
+            <input type="radio" id="q5yes" name="q5" value="yes">
+            <label for="q5yes">Да</label>
+            <input type="radio" id="q5no" name="q5" value="no">
+            <label for="q5no">Не</label>
+
+            <p>Въпрос 6: Рядко имам запек.</p>
+            <input type="radio" id="q6yes" name="q6" value="yes">
+            <label for="q6yes">Да</label>
+            <input type="radio" id="q6no" name="q6" value="no">
+            <label for="q6no">Не</label>
+
+            <p>Въпрос 7: Понякога много ми се иска да напусна дома си.</p>
+            <input type="radio" id="q7yes" name="q7" value="yes">
+            <label for="q7yes">Да</label>
+            <input type="radio" id="q7no" name="q7" value="no">
+            <label for="q7no">Не</label>
+
+            <p>Въпрос 8: Понякога има пристъпи на смях и плач, които не контролирам.</p>
+            <input type="radio" id="q8yes" name="q8" value="yes">
+            <label for="q8yes">Да</label>
+            <input type="radio" id="q8no" name="q8" value="no">
+            <label for="q8no">Не</label>
+
+            <p>Въпрос 9: Безпокоят ме пристъпи на прилошаване и повръщане.</p>
+            <input type="radio" id="q9yes" name="q9" value="yes">
+            <label for="q9yes">Да</label>
+            <input type="radio" id="q9no" name="q9" value="no">
+            <label for="q9no">Не</label>
+
+            <p>Въпрос 10: Струва ми се, че няма човек, който да ме разбира.</p>
+            <input type="radio" id="q10yes" name="q10" value="yes">
+            <label for="q10yes">Да</label>
+            <input type="radio" id="q10no" name="q10" value="no">
+            <label for="q10no">Не</label>
+
+            <p>Въпрос 11: Понякога ми се иска да ругая себе си.</p>
+            <input type="radio" id="q11yes" name="q11" value="yes">
+            <label for="q11yes">Да</label>
+            <input type="radio" id="q11no" name="q11" value="no">
+            <label for="q11no">Не</label>
+
+            <p>Въпрос 12: Почита всяка нощ сънувам кошмари.</p>
+            <input type="radio" id="q12yes" name="q12" value="yes">
+            <label for="q12yes">Да</label>
+            <input type="radio" id="q12no" name="q12" value="no">
+            <label for="q12no">Не</label>
+
+            <p>Въпрос 13: Забелязвам, че ми е трудно да се съсредоточавам.</p>
+            <input type="radio" id="q13yes" name="q13" value="yes">
+            <label for="q13yes">Да</label>
+            <input type="radio" id="q13no" name="q13" value="no">
+            <label for="q13no">Не</label>
+
+            <p>Въпрос 14: Имам странни, необикновени преживявания.</p>
+            <input type="radio" id="q14yes" name="q14" value="yes">
+            <label for="q14yes">Да</label>
+            <input type="radio" id="q14no" name="q14" value="no">
+            <label for="q14no">Не</label>
+
+            <p>Въпрос 15: Ако хората не интриганстват срещу мен, мога да постигна повече.</p>
+            <input type="radio" id="q15yes" name="q15" value="yes">
+            <label for="q15yes">Да</label>
+            <input type="radio" id="q15no" name="q15" value="no">
+            <label for="q15no">Не</label>
+
+            <p>Въпрос 16: Имаше време, когато извършвах дребни кражби.</p>
+            <input type="radio" id="q16yes" name="q16" value="yes">
+            <label for="q16yes">Да</label>
+            <input type="radio" id="q16no" name="q16" value="no">
+            <label for="q16no">Не</label>
+
+            <p>Въпрос 17: Имам периоди, в които не мога да се заловя за работа.</p>
+            <input type="radio" id="q17yes" name="q17" value="yes">
+            <label for="q17yes">Да</label>
+            <input type="radio" id="q17no" name="q17" value="no">
+            <label for="q17no">Не</label>
+
+            <p>Въпрос 18: Имам накъсан и неспокоен сън.</p>
+            <input type="radio" id="q18yes" name="q18" value="yes">
+            <label for="q18yes">Да</label>
+            <input type="radio" id="q18no" name="q18" value="no">
+            <label for="q18no">Не</label>
+
+            <p>Въпрос 19: Когато съм сред хора, чувам странни неща.</p>
+            <input type="radio" id="q19yes" name="q19" value="yes">
+            <label for="q19yes">Да</label>
+            <input type="radio" id="q19no" name="q19" value="no">
+            <label for="q19no">Не</label>
+
+            <p>Въпрос 20: Повечето хора, които ме познават, се отнасят с мен добре.</p>
+            <input type="radio" id="q20yes" name="q20" value="yes">
+            <label for="q20yes">Да</label>
+            <input type="radio" id="q20no" name="q20" value="no">
+            <label for="q20no">Не</label>
+
+            <p>Въпрос 21: Често ми се налага да слушам хора, които знаят по-малко от мен.</p>
+            <input type="radio" id="q21yes" name="q21" value="yes">
+            <label for="q21yes">Да</label>
+            <input type="radio" id="q21no" name="q21" value="no">
+            <label for="q21no">Не</label>
+
+            <p>Въпрос 22: Струва ми се, че другите са по-щастливи от мен.</p>
+            <input type="radio" id="q22yes" name="q22" value="yes">
+            <label for="q22yes">Да</label>
+            <input type="radio" id="q22no" name="q22" value="no">
+            <label for="q22no">Не</label>
+
+            <p>Въпрос 23: Мисля, че хората преувеличават нещастията си,за да постигнат съчувствие и помощ.</p>
+            <input type="radio" id="q23yes" name="q23" value="yes">
+            <label for="q23yes">Да</label>
+            <input type="radio" id="q23no" name="q23" value="no">
+            <label for="q23no">Не</label>
+
+            <p>Въпрос 24: Понякога сервилнича. (мазня се)</p>
+            <input type="radio" id="q24yes" name="q24" value="yes">
+            <label for="q24yes">Да</label>
+            <input type="radio" id="q24no" name="q24" value="no">
+            <label for="q24no">Не</label>
+
+            <p>Въпрос 25: Убеден съм, че не ми достига увереност в себе си.</p>
+            <input type="radio" id="q25yes" name="q25" value="yes">
+            <label for="q25yes">Да</label>
+            <input type="radio" id="q25no" name="q25" value="no">
+            <label for="q25no">Не</label>
+
+            <p>Въпрос 26: Много рядко имам мускулни спазми или потрепервания.</p>
+            <input type="radio" id="q26yes" name="q26" value="yes">
+            <label for="q26yes">Да</label>
+            <input type="radio" id="q26no" name="q26" value="no">
+            <label for="q26no">Не</label>
+
+            <p>Въпрос 27: Постоянно имам чувството, че съм направил нещо недобро.</p>
+            <input type="radio" id="q27yes" name="q27" value="yes">
+            <label for="q27yes">Да</label>
+            <input type="radio" id="q27no" name="q27" value="no">
+            <label for="q27no">Не</label>
+
+            <p>Въпрос 28: Повечето време се чувствам щастлив и доволен от живота.</p>
+            <input type="radio" id="q28yes" name="q28" value="yes">
+            <label for="q28yes">Да</label>
+            <input type="radio" id="q28no" name="q28" value="no">
+            <label for="q28no">Не</label>
+
+            <p>Въпрос 29: Някои хора така обичат да командват, че на мен ми се иска да направя точно обратното, дори и
+                да знам, че са прави.</p>
+            <input type="radio" id="q29yes" name="q29" value="yes">
+            <label for="q29yes">Да</label>
+            <input type="radio" id="q29no" name="q29" value="no">
+            <label for="q29no">Не</label>
+
+            <p>Въпрос 30: Знам, че има хора, които са настроени срещу мен.</p>
+            <input type="radio" id="q30yes" name="q30" value="yes">
+            <label for="q30yes">Да</label>
+            <input type="radio" id="q30no" name="q30" value="no">
+            <label for="q30no">Не</label>
+
+            <p>Въпрос 31: Мисля, че повечето хора предпочитат да постъпят нечестно заради изгодата, отколкото да
+                изпуснат случая.</p>
+            <input type="radio" id="q31yes" name="q31" value="yes">
+            <label for="q31yes">Да</label>
+            <input type="radio" id="q31no" name="q31" value="no">
+            <label for="q31no">Не</label>
+
+            <p>Въпрос 32: Много често ме безпокои жлъчката.</p>
+            <input type="radio" id="q32yes" name="q32" value="yes">
+            <label for="q32yes">Да</label>
+            <input type="radio" id="q32no" name="q32" value="no">
+            <label for="q32no">Не</label>
+
+            <p>Въпрос 33: Често не мога да разбера защо съм бил толкова вироглав.</p>
+            <input type="radio" id="q33yes" name="q33" value="yes">
+            <label for="q33yes">Да</label>
+            <input type="radio" id="q33no" name="q33" value="no">
+            <label for="q33no">Не</label>
+
+            <p>Въпрос 34: Понякога мислите ми текат бързо и не успявам да ги изрека.</p>
+            <input type="radio" id="q34yes" name="q34" value="yes">
+            <label for="q34yes">Да</label>
+            <input type="radio" id="q34no" name="q34" value="no">
+            <label for="q34no">Не</label>
+
+            <p>Въпрос 35: Мисля, че в моя дом животът е не по-лош, отколкото при повечето мои познати.</p>
+            <input type="radio" id="q35yes" name="q35" value="yes">
+            <label for="q35yes">Да</label>
+            <input type="radio" id="q35no" name="q35" value="no">
+            <label for="q35no">Не</label>
+
+            <p>Въпрос 36: Понякога съм убеден в собствената си безполезност.</p>
+            <input type="radio" id="q36yes" name="q36" value="yes">
+            <label for="q36yes">Да</label>
+            <input type="radio" id="q36no" name="q36" value="no">
+            <label for="q36no">Не</label>
+
+            <p>Въпрос 37: В последните години самочувствието ми е лошо.</p>
+            <input type="radio" id="q37yes" name="q37" value="yes">
+            <label for="q37yes">Да</label>
+            <input type="radio" id="q37no" name="q37" value="no">
+            <label for="q37no">Не</label>
+
+            <p>Въпрос 38: Понякога не съзнавам какво правя.</p>
+            <input type="radio" id="q38yes" name="q38" value="yes">
+            <label for="q38yes">Да</label>
+            <input type="radio" id="q38no" name="q38" value="no">
+            <label for="q38no">Не</label>
+
+            <p>Въпрос 39: Мисля, че често са ме наказвали незаслужено.</p>
+            <input type="radio" id="q39yes" name="q39" value="yes">
+            <label for="q39yes">Да</label>
+            <input type="radio" id="q39no" name="q39" value="no">
+            <label for="q39no">Не</label>
+
+            <p>Въпрос 40: В момента се чувствам най-добре от когато и да било в живота ми.</p>
+            <input type="radio" id="q40yes" name="q40" value="yes">
+            <label for="q40yes">Да</label>
+            <input type="radio" id="q40no" name="q40" value="no">
+            <label for="q40no">Не</label>
+
+            <p>Въпрос 41: Не се безпокоя, ако говорят за мен.</p>
+            <input type="radio" id="q41yes" name="q41" value="yes">
+            <label for="q41yes">Да</label>
+            <input type="radio" id="q41no" name="q41" value="no">
+            <label for="q41no">Не</label>
+
+            <p>Въпрос 42: Паметта ми работи добре.</p>
+            <input type="radio" id="q42yes" name="q42" value="yes">
+            <label for="q42yes">Да</label>
+            <input type="radio" id="q42no" name="q42" value="no">
+            <label for="q42no">Не</label>
+
+            <p>Въпрос 43: Трудно ми е да поддържам разговор с хора, с които току-що съм се запознал.</p>
+            <input type="radio" id="q43yes" name="q43" value="yes">
+            <label for="q43yes">Да</label>
+            <input type="radio" id="q43no" name="q43" value="no">
+            <label for="q43no">Не</label>
+
+            <p>Въпрос 44: По-голяма част от времето чувствам слабост.</p>
+            <input type="radio" id="q44yes" name="q44" value="yes">
+            <label for="q44yes">Да</label>
+            <input type="radio" id="q44no" name="q44" value="no">
+            <label for="q44no">Не</label>
+
+            <p>Въпрос 45: Рядко имам главоболие.</p>
+            <input type="radio" id="q45yes" name="q45" value="yes">
+            <label for="q45yes">Да</label>
+            <input type="radio" id="q45no" name="q45" value="no">
+            <label for="q45no">Не</label>
+
+            <p>Въпрос 46: Не ми е трудно да пазя равновесие при ходене.</p>
+            <input type="radio" id="q46yes" name="q46" value="yes">
+            <label for="q46yes">Да</label>
+            <input type="radio" id="q46no" name="q46" value="no">
+            <label for="q46no">Не</label>
+
+            <p>Въпрос 47: Не харесвам всичко, което зная.</p>
+            <input type="radio" id="q47yes" name="q47" value="yes">
+            <label for="q47yes">Да</label>
+            <input type="radio" id="q47no" name="q47" value="no">
+            <label for="q47no">Не</label>
+
+            <p>Въпрос 48: Има хора, които се опитват да ми вземат идеите.</p>
+            <input type="radio" id="q48yes" name="q48" value="yes">
+            <label for="q48yes">Да</label>
+            <input type="radio" id="q48no" name="q48" value="no">
+            <label for="q48no">Не</label>
+
+            <p>Въпрос 49: Уверен съм, че няма прошка за моите постъпки.</p>
+            <input type="radio" id="q49yes" name="q49" value="yes">
+            <label for="q49yes">Да</label>
+            <input type="radio" id="q49no" name="q49" value="no">
+            <label for="q49no">Не</label>
+
+            <p>Въпрос 50: Иска ми се да не съм толкова срамежлив.</p>
+            <input type="radio" id="q50yes" name="q50" value="yes">
+            <label for="q50yes">Да</label>
+            <input type="radio" id="q50no" name="q50" value="no">
+            <label for="q50no">Не</label>
+
+            <p>Въпрос 51: Често забелязвам, че се тревожа за нещо.</p>
+            <input type="radio" id="q51yes" name="q51" value="yes">
+            <label for="q51yes">Да</label>
+            <input type="radio" id="q51no" name="q51" value="no">
+            <label for="q51no">Не</label>
+
+            <p>Въпрос 52: Моите родители често не одобряваха познанствата ми.</p>
+            <input type="radio" id="q52yes" name="q52" value="yes">
+            <label for="q52yes">Да</label>
+            <input type="radio" id="q52no" name="q52" value="no">
+            <label for="q52no">Не</label>
+
+            <p>Въпрос 53: Понякога мога да клюкарствам.</p>
+            <input type="radio" id="q53yes" name="q53" value="yes">
+            <label for="q53yes">Да</label>
+            <input type="radio" id="q53no" name="q53" value="no">
+            <label for="q53no">Не</label>
+
+            <p>Въпрос 54: Понякога чувствам, че много лесно взимам решения.</p>
+            <input type="radio" id="q54yes" name="q54" value="yes">
+            <label for="q54yes">Да</label>
+            <input type="radio" id="q54no" name="q54" value="no">
+            <label for="q54no">Не</label>
+
+            <p>Въпрос 55: Никога не съм забелязвал, че имам сърцебиене или задух.</p>
+            <input type="radio" id="q55yes" name="q55" value="yes">
+            <label for="q55yes">Да</label>
+            <input type="radio" id="q55no" name="q55" value="no">
+            <label for="q55no">Не</label>
+
+            <p>Въпрос 56: Лесно излизам от кожата си, но бързо се успокоявам.</p>
+            <input type="radio" id="q56yes" name="q56" value="yes">
+            <label for="q56yes">Да</label>
+            <input type="radio" id="q56no" name="q56" value="no">
+            <label for="q56no">Не</label>
+
+            <p>Въпрос 57: Имам периоди на толкова силно безпокойство, че не ме сдържа на едно място.</p>
+            <input type="radio" id="q57yes" name="q57" value="yes">
+            <label for="q57yes">Да</label>
+            <input type="radio" id="q57no" name="q57" value="no">
+            <label for="q57no">Не</label>
+
+            <p>Въпрос 58: Често вкъщи се заяждат с мен без основание.</p>
+            <input type="radio" id="q58yes" name="q58" value="yes">
+            <label for="q58yes">Да</label>
+            <input type="radio" id="q58no" name="q58" value="no">
+            <label for="q58no">Не</label>
+
+            <p>Въпрос 59: На никого не му влиза в работата това, което ми се случва.</p>
+            <input type="radio" id="q59yes" name="q59" value="yes">
+            <label for="q59yes">Да</label>
+            <input type="radio" id="q59no" name="q59" value="no">
+            <label for="q59no">Не</label>
+
+            <p>Въпрос 60: Не упреквам хората, които се възползват от грешките на другите.</p>
+            <input type="radio" id="q60yes" name="q60" value="yes">
+            <label for="q60yes">Да</label>
+            <input type="radio" id="q60no" name="q60" value="no">
+            <label for="q60no">Не</label>
+
+            <p>Въпрос 61: Понякога съм изпълнен с енергия.</p>
+            <input type="radio" id="q61yes" name="q61" value="yes">
+            <label for="q61yes">Да</label>
+            <input type="radio" id="q61no" name="q61" value="no">
+            <label for="q61no">Не</label>
+
+            <p>Въпрос 62: В последно време се е влошило зрението ми.</p>
+            <input type="radio" id="q62yes" name="q62" value="yes">
+            <label for="q62yes">Да</label>
+            <input type="radio" id="q62no" name="q62" value="no">
+            <label for="q62no">Не</label>
+
+            <p>Въпрос 63: Често имам шум в ушите.</p>
+            <input type="radio" id="q63yes" name="q63" value="yes">
+            <label for="q63yes">Да</label>
+            <input type="radio" id="q63no" name="q63" value="no">
+            <label for="q63no">Не</label>
+
+            <p>Въпрос 64: Някой се опитва да въздейства на мислите ми.</p>
+            <input type="radio" id="q64yes" name="q64" value="yes">
+            <label for="q64yes">Да</label>
+            <input type="radio" id="q64no" name="q64" value="no">
+            <label for="q64no">Не</label>
+
+            <p>Въпрос 65: Имам периоди на безпричинна радост.</p>
+            <input type="radio" id="q65yes" name="q65" value="yes">
+            <label for="q65yes">Да</label>
+            <input type="radio" id="q65no" name="q65" value="no">
+            <label for="q65no">Не</label>
+
+            <p>Въпрос 66: Почти винаги се чувствам самотен, дори когато съм сред хора.</p>
+            <input type="radio" id="q66yes" name="q66" value="yes">
+            <label for="q66yes">Да</label>
+            <input type="radio" id="q66no" name="q66" value="no">
+            <label for="q66no">Не</label>
+
+            <p>Въпрос 67: Мисля, че всеки би могъл да излъже, за да избегне неприятности.</p>
+            <input type="radio" id="q67yes" name="q67" value="yes">
+            <label for="q67yes">Да</label>
+            <input type="radio" id="q67no" name="q67" value="no">
+            <label for="q67no">Не</label>
+
+            <p>Въпрос 68: Аз съм по-обидчив от другите. </p>
+            <input type="radio" id="q68yes" name="q68" value="yes">
+            <label for="q68yes">Да</label>
+            <input type="radio" id="q68no" name="q68" value="no">
+            <label for="q68no">Не</label>
+
+            <p>Въпрос 69: Понякога главата ми работи необичайно забавено. </p>
+            <input type="radio" id="q69yes" name="q69" value="yes">
+            <label for="q69yes">Да</label>
+            <input type="radio" id="q69no" name="q69" value="no">
+            <label for="q69no">Не</label>
+
+            <p>Въпрос 70: Хората често ме разочароват. </p>
+            <input type="radio" id="q70yes" name="q70" value="yes">
+            <label for="q70yes">Да</label>
+            <input type="radio" id="q70no" name="q70" value="no">
+            <label for="q70no">Не</label>
+
+            <p>Въпрос 71: Злоупотребявам с алкохолни напитки.</p>
+            <input type="radio" id="q71yes" name="q71" value="yes">
+            <label for="q71yes">Да</label>
+            <input type="radio" id="q71no" name="q71" value="no">
+            <label for="q71no">Не</label>
+        </form>
+        <button onclick="check()" style="width: 640px; font-size: larger; border: black double 12px;">Резултати</button>
+        <form id="answer-form">
+            <p id="legend" class="wiki-paragraph"></p>
+            <p id="lie" class=""></p>
+            <p id="trueCheck" class=""></p>
+            <p id="corection" class=""></p>
+            <p class="wiki-paragraph">
+                Хипохондрията или психосоматично разстройство (понякога накратко в медицинския жаргон психосоматика), се
+                характеризира с необоснована загриженост и дори маниакален страх за собственото здраве и нереалистичното
+                убеждение, че физическите белези и симптоми сочат сериозно соматично заболяване, въпреки рационалните
+                уверения, че не съществува подобна болест, най-вече притеснения за наличието на сериозно заболяване.
+                Често се наблюдава дори когато лекар е прегледал страдащия от хипохондрия и го е уверил, че опасенията
+                му са неоснователни или неадекватно пресилени.
+
+                Терминът е съставен от наименованието на гръцки: hypochondria, hypo - под и chondros - гръдна кост, с
+                което се обозначава нервно заболяване, в резултат на което човек е мрачен, постоянно мислещ за здравето
+                си, за своите болести и произтичащите от това лични нещастия.
+            </p>
+            <p id="hipohondry" class=""></p>
+            <p class="wiki-paragraph">
+                Депресията в общия случай е чувство на меланхолия, тъга, отчаяние, безпомощност и унилост, което може да
+                трае от няколко часа до няколко дни. Ако е налице дълготрайно чувство на тъга и отчаяние[1][2], може да
+                става въпрос за заболяване, известно като клинична депресия.
+
+                Депресията може да бъде провокирана от различни фактори – биологични, психични и социални (като раждане,
+                загуба на близък човек, развод). Признаците са липса на енергия, липса на апетит, безсъние, апатия и
+                мисли за самоубийство, но също повишена емоционалност, свръхактивност, раздразнителност, безпричинна
+                еуфория.
+            </p>
+            <p id="depress" class=""></p>
+            <p class="wiki-paragraph">
+                Хистерия (от гръцки: ὑστέρα, hystera – матка) е историческото наименование на вид невроза, изразяваща се
+                соматично. Хистеричните кризи се състоят в бурни кон­вулсии, парализа, загуба на зрението или речта и
+                така нататък не почиват на никаква органична основа (например субектът казва, че не може вече да ходи,
+                но рефлексите му са запазени); от друга страна, те почти винаги настъпват в присъствието на много хора.
+                Дълго време неразбирани (в Средните векове ги приписвали на обсебеност от бесове, в XIX век – на
+                сексуална разюзданост), те били грижливо описани от Жан Шарко, а после обяснени от Зигмунд Фройд.
+
+                Хистерията е експресивна невроза. Кризите са натоварени с определено значение. Тя е израз на конфликти,
+                които се дължат на отчаяната нужда или усилие за разделяне с определен обект и в същото време отчаяната
+                нужда и опит за (отново) заедност, тъй като е налице интернализация на обекта и дори в някои случаи
+                идентификация с този отхвърлен обект, като любовните отношения са често хистерични (Фейърбърн, 1952);
+                хистерията е екстернализация на приет обект и интернализация на отхвърлен обект. Фейърбърн определя
+                хистерията като защитен механизъм.
+
+                Кризите имат стойността на език: една 21-годишна девойка, лекувана от Бройер и Фройд през 1882 г., не
+                можела вече да пие от чаша; анализът разкрил, че това поведение е несъзнаван протест срещу постъпката на
+                предишна гувернантка, която давала на кучето си да пие от чаша. Хистеричните са емотивни и чувствителни
+                индивиди, с буйно въображение, внушаеми, пластични, искащи винаги да се харесват. Несмеейки да утвърдят
+                личността си, те вечно играят ролята, която са си избрали. Те изтласкват в несъзнаваното своите
+                забранени афекти и последните намират израз като се преобразуват (чрез конверсия) в телесни симптоми.
+                Хистеричните не са симуланти, а невротици, които се лекуват ефикасно с психоанализа. </p>
+            <p id="histery" class=""></p>
+            <p class="wiki-paragraph">
+                Диссоциалното разстройство на личността, известно и като антисоциално личностно разстройство
+                (психопатия) е дефинирано от DSM на американската психиатрична асоциация като "широко разпространен
+                модел на насилие над правата на другите, който започва в детството или в ранната младост и продължва в
+                зрялата възраст." Лъжата и манипулацията се разглеждат като същностни черти на разстройството. По тази
+                причина е по-важно при правенето на диагнозата да се събере материал от други източници, отколкото
+                индивида да бъде диагностициран. Също така, обикновено се приема, че индивидите трябва да са на 18
+                години или по-големи, както и да имат документирана история на разстройствата в поведението преди
+                15-годишна възраст.[1] Хората с диссоциално разстройство на личността понякога са свързвани със
+                социопатите и психопатите, макар че някои изследователи смятат, че тези термини не са синомоми на
+                разстройството.
+            </p>
+            <p id="psychopaty" class=""></p>
+            <p class="wiki-paragraph">
+                Параноята е психично състояние, характеризиращо се с повишена тревожност и ирационален страх, нерядко
+                със следи на налудност за преследване и/или придружено от вяра в конспирация. Параноята е болестно
+                състояние, при което човек има усещането, че някой непрекъснато го следи и преследва.
+
+                В медицината терминът може да означава психично заболяване, характеризиращо се със специфична система от
+                илюзии, без нарушения на когнитивните функции.
+
+                Думата произлиза от гръцки език (παράνοια) и означава лудост.
+
+                Параноя – представлява патологично надценяване на собствения Аз-образ (представата на личността за себе
+                си). Тя се разглежда като вид невроза, която се дължи на силно развито чувство за малоценност,
+                съпроводено с гордост от постигнато. Този вид комплекс се свързва с това, че човек мечтае да участва в
+                ситуации, в които той е най-добрият. Подобни действия разделят личността от реалните отношения. В нея се
+                развива огромна гордост, недоверчивост, мнителност, измислена мания за преследване, които правят този
+                човек лесно раним, егоистичен, взискателен и предявяващ претенции да бъде харесван. Човек с такъв
+                комплекс, при контакт с околните е агресивен, предирчив, не желае и не може да се впише в общите
+                изисквания. Параноикът е труден за разбиране. Преценките му са деформирани и изменени. Възприема дори
+                най-малките неща като сложни. Импулсивен и свръхемоционален. Подобен тип хора трудно се приемат от
+                околните, защото смятат, че всичко им е позволено. От привидно мнимо спокойствие те бързо преминават в
+                активно и се стремят да доминират над околните като се стремят да внушават своите оценки или мнения.
+                Параноикът крие в себе си враждебност, но в същото време демонстрира омраза и в много случаи деспотизъм.
+                Това е провокирано от патологичното надценяване над собствената личност. Такъв тип хора споделят всички
+                свои виждания пред останалите като се стремят да ги накарат да им партнират.
+            </p>
+            <p id="paranoy" class=""></p>
+            <p class="wiki-paragraph">
+                Психастения това е психологическо разстройство, характеризиращо се с проява на фобии, мании, принуди и
+                безпокойство. Този термин е измислен от Джанет през 1903 г. с цел да се дефинират клинични картини, в
+                които основно присъстват обсесии и компулсии.
+
+                Въпреки че тези две прояви са основните при психастенията, промяната включва други симптоми като тикове,
+                фобия и деперсонализация. Това разстройство се тълкува като дефицит на психологическо напрежение, което
+                може да бъде хронично, дегенеративно и наследствено.
+            </p>
+            <p id="psychosteny" class=""></p>
+            <p class="wiki-paragraph">
+                Шизоидното личностно разстройство (SPD) се характеризира с безразличие към социалните взаимоотношения и
+                липса на интерес към създаване на контакти. Хората с шизоидно разстройство на личността са потайни и
+                често водят затворен начин на живот, но не са самотни и не страдат от това. Апатични са и биват
+                определяни като студени и особени хора. Разстройството се проявява в най-често в ранна зряла възраст.
+                Носителите му създават свое ежедневие и интереси, често ги вълнуват отвлечени, абстрактни въроси. Нямат
+                близки отношения с околните, дори с най-близките и роднините си. Обикновено са отдалечени емоционално и
+                могат да са предразположени към фантазии и мечти. За тях не те, а останалите изглеждат странни и
+                неразбрани. Те могат да се справят добре, ако извършват самостоятелна работа, която за другите би била
+                непоносимо самотна и откъсната. Шизоидното разстройство често бива бъркано с шизофрения, макар да има
+                значителна разлика. Първите поддържат връзка с реалността и се справят добре в живота, избирайки работа,
+                която изисква да бъдат сами през по-голяма част от времето. При SPD способността за създаване на връзка
+                с другите е ограничена. Около 3,1 до 4,9% са засегнатите с шизоидно разстройство на личността. По-често
+                срещано е сред мъжете. SPD попада в групата на т.нар „ексцентрични личностни разстройства“, познати още
+                като „клъстър А“.
+            </p>
+            <p id="schizoide" class=""></p>
+            <p class="wiki-paragraph">
+                Хипоманията (буквално "под мания" или по-слаб вид мания) е състояние, характеризиращо се с настроение,
+                повишено над нормалното, но не толкова екстремно, че да причини увреждане — най-важната характеристика,
+                отличаваща го от манията. То може да включва дразнене, но по-малко от пълната мания.
+
+                Древногръцкият лекар Хипократ нарича един тип личност "хипоманичен". През 19-ти век в психиатрията
+                манията имаше широк смисъл на лудост, а хипоманията се приравняваше от някои към понятията за "частична
+                лудост". По-специфична употреба е направена от немския невро-психиатър Emanuel Ernst Mendel през 1881
+                г., който пише: "Аз препоръчвам, като се има предвид думата, използвана от Хипократ, за онези типове
+                мания, които показват по-малко тежка феноменологична картина, да наричаме с термина хипомания".
+            </p>
+            <p id="hipomany" class=""></p>
+        </form>
     </center>
-    </body>>
+</body>>
 
 </html>

@@ -82,15 +82,21 @@ function sorting() {
     console.log(people2)
 }
 
+// const compareNumbers = {
+//     ascending: (a, b) => a - b;
+//     descending: (a, b) => b - a;
+//     };
+//     /// сортиране с обект и функция
+
 printStars("5")
 sorting()
 
 let blah = 0
 
 const myArray = [['2', '3', '4', '7', '0'],
-    ['4', '0', '5', '3', '4'],
-    ['2', '3', '1', '4', '2'],
-    ['9', '8', '5', '5', '4']]
+    ['4', '0', '5', '3', '1'],
+    ['2', '3', '1', '4', '0'],
+    ['9', '8', '5', '2', '4']]
 
 const containsDuplicate = (array) => {
     for (const subArray of array) {

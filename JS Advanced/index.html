@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>FromJSONToHTMLTable</title>
+
+    <style>
+        table,
+        th {
+
+            border: groove;
+
+            border-collapse: collapse;
+
+        }
+
+        td {
+
+            border: 1px solid black;
+
+        }
+
+        td,
+        th {
+
+            padding: 5px;
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+    </div>
+
+    <script>
+
+        function fromJSONToHTMLTable(input) {
+            let obj = JSON.parse(input);
+            let keys = Object.keys(obj[0]);
+            let result = "";
+            let special_symbols = /[&<>"–—©®™≈≠£€° ]/mg;
+            let xxx = (x) => {
+                switch (x) {
+                    case "&": return "&amp;"
+                    case "<": return "&lt;"
+                    case ">": return "&gt;"
+                    case "\"": return "&quot;"
+                    case "–": return "&ndash;"
+                    case "—": return "&mdash;"
+                    case "©": return "&copy;"
+                    case "®": return "&reg;"
+                    case "™": return "&trade;"
+                    case "≈": return "&asymp;"
+                    case "≠": return "&ne;"
+                    case "£": return "&pound;"
+                    case "€": return "&euro;"
+                    case "°": return "&deg;"
+                    case "'": return "&quot;"
+                    default: return "&nbsp;"
+                }
+            }
+            result += "<table>\n\t<tr>"
+            for (let key of keys) {
+                result += "<th>" + key.replace(special_symbols, xxx) + "</th>";
+            }
+            result += "</tr>\n"
+            obj.forEach(element => {
+                result += "\t<tr>"
+                for (keys_element in element) {
+                    if (keys.includes(keys_element)) {
+                        let word = element[keys_element].toString();
+                        word = word.replace(special_symbols, xxx)
+                        result += `<td>${word}</td>`;
+                    } else {
+                        result += `<td></td>`;
+                    }
+                }
+                result += "</tr>\n"
+            });
+
+            return result += "</table>\n"
+        }
+        window.onload = function () {
+
+            let container = document.getElementById('wrapper');
+
+            container.innerHTML =
+
+                fromJSONToHTMLTable(['[{"Na me":"St    amat","Price":5.5},{"Name":"Rumen","Price": 16}]']);
+
+        };
+
+    </script>
+
+</body>
+
+</html>

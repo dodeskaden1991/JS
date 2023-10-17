@@ -1,0 +1,123 @@
+<!--   "#content div" - selects all <div>s inside #content -->
+<!--  ".note, .alert" - all elements with class "note" or "alert" -->
+<!--  "input[name='login']" - <input> with name "login" -->
+<!-- ul.items - селектира ул с клас итемс, ако е само .итемс всички елементи с този клас -->
+<html>
+
+<body>
+    <div>
+        <p>First paragraph.</p>
+        <p>Second paragraph.</p>
+        <p class="none">Third paragraph.</p>
+        <p class="none">Fourth paragraph.</p>
+        <p class="none">Fifth paragraph.</p>
+        <p class="none">Sixth paragraph.</p>
+        <p class="none">Seventh paragraph.</p>
+        <p class="none">Eighth paragraph.</p>
+        <p class="none">Nine paragraph.</p>
+        <p class="none">Ten paragraph.</p>
+        <p class="none">Eleventh paragraph.</p>
+        <p class="none">Twelfth paragraph.</p>
+        <p class="none">Thirteenth paragraph.</p>
+    </div>
+    <hr>
+    <div id="kitty">
+        <p>This is basic text</p>
+    </div>
+    <hr>
+    <div id="kitty2"></div>
+    <script>
+        <!-- да ги гледам в конзолата на браузъра -->
+        let firstP = document.getElementsByTagName('p')[0];
+        let pElements = document.getElementsByTagName('div')[0].children;
+        let el = document.querySelector('.none');
+        el.style.display = 'none';
+        let el2 = document.querySelectorAll('div p:nth-child(4n)');
+        for (let i = 0; i < el2.length; i++) {
+            el2[i].style.display = 'none';
+            el2[i].style.color = 'blue'; 
+            el2[i].className = 'no_change';
+            if (i % 2 == 0) 
+            { 
+                el2[i].style.display = ''; 
+            }
+        } 
+        console.log(firstP); 
+        console.log(firstP.parentElement);
+        console.log(pElements); 
+    </script>
+    <script>
+        let kitty = document.getElementById('kitty');
+        let kitty2 = document.getElementById('kitty2');
+
+        let like_push = document.createElement('p');
+        like_push.id = "like_push";
+        like_push.textContent = "I like pushups, i am append text paragraph";
+        kitty.append(like_push);
+        
+        let like_unshift = document.createElement('p');
+        like_unshift.id = "like_unshift";
+        like_unshift.textContent = "I like unshift, i am prepend text paragraph";
+        kitty.prepend(like_unshift);
+
+        for(let i = 0; i < 3; i++){
+            let replace_with = document.createElement('p');
+            replace_with.className = "replace_with";
+            replace_with.textContent = "I like replace with, i am append text paragraph";
+            replace_with.style.color = "red";
+            let clone = replace_with.cloneNode(true);
+            kitty.append(replace_with);
+            kitty2.append(clone);
+        }
+
+        let replaced = document.createElement('p');
+        replaced.className = "replaced";
+        replaced.style.color = "green";
+        replaced.style.whiteSpace = "pre";
+        replaced.textContent = "I like replaced. i am replaced with replaceWith\nkitty2 do not exist any more\n";
+        kitty2.replaceWith(replaced);
+
+        let first_div = document.querySelector('div')
+        let replace_all = document.createElement('p');
+        replace_all.style.color = "pink";
+        replace_all.textContent = "I like replace child - i am replaced with replaceChild";
+        let none_element = first_div.querySelector('p');
+        first_div.replaceChild(replace_all,none_element);
+
+        let textNode = document.createTextNode("this is unique text with text node");
+        let clone_textNode = textNode.cloneNode(true);
+        kitty.appendChild(textNode);
+        replaced.appendChild(clone_textNode);
+
+        //different ways to remove element
+        let div = document.createElement('div');
+        let p_element = document.createElement('p');
+        let span = document.createElement('span');
+        let span2 = document.createElement('span');
+        div.textContent = "This is text in div - div have span and p, but i removed span";
+        p_element.textContent = "This is text in p";
+        span.textContent = "This is text in span";
+        span2.textContent = "This is text in span2";
+        div.append(p_element,span,span2);
+        div.removeChild(span);
+        span2.parentNode.removeChild(span2);
+        replaced.append(div);
+
+        
+        //different ways to get parentNode and parentElement
+        const li = document.createElement("li");
+        const ul = document.createElement("ul");
+        ul.appendChild(li);
+        const parentNode = li.parentNode;
+        const parentElement = li.parentElement;
+        console.log(parentNode, parentElement);
+
+        const test = document.documentElement
+        console.log("тест елемент (document.documentElement): ",test);
+        const parentNode2 = test.parentNode;
+        const parentElement2 = test.parentElement;
+        console.log("parentNode: ",parentNode2," parentElement: ", parentElement2);
+    </script>
+</body>
+
+</html>
