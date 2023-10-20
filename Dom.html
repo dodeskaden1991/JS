@@ -2,121 +2,403 @@
 <!--  ".note, .alert" - all elements with class "note" or "alert" -->
 <!--  "input[name='login']" - <input> with name "login" -->
 <!-- ul.items - селектира ул с клас итемс, ако е само .итемс всички елементи с този клас -->
+<!-- textContent - не гледа стиловете, а самото съдържание на елемента -->
+<!-- innerText - гледа стиловете w самото съдържание на елемента, т.е. ако има него с display:none ще го пропусне -->
+<!-- previousElementSibling - а има ли nextElementSibling-->
 <html>
 
+<head>
+  <style>
+    #kitty3 p {
+      color: blue;
+    }
+
+    .menu {
+      list-style: none;
+      /* премахване на точките от списъка */
+      margin: 0;
+      padding: 0;
+      background-color: #333;
+    }
+
+    .menu li {
+      display: inline-block;
+      /* подреждане на елементите хоризонтално */
+      position: relative;
+      /* позиция относително родителя си */
+    }
+
+    .menu li a {
+      color: white;
+      text-decoration: none;
+      /* премахване на подчертаването */
+      padding: 10px 20px;
+      /* падинг около текста */
+      display: block;
+      /* блоково показване на линка */
+    }
+
+    .menu li a:hover {
+      background-color: #f90;
+    }
+
+    .submenu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      /* абсолютна позиция спрямо родителя си */
+      top: 100%;
+      /* поставяне под родителя си */
+      left: 0;
+      /* поставяне вляво от родителя си */
+      width: 200px;
+      display: none;
+    }
+
+    .submenu li {
+      display: block;
+      /* подреждане на елементите вертикално */
+    }
+
+    .submenu li a {
+      color: black;
+      text-decoration: none;
+      padding: 10px;
+    }
+
+    .submenu li a:hover {
+      background-color: #ccc;
+    }
+
+    .focused {
+      background-color: #f90;
+      padding: 10px 20px;
+      display: block;
+      width: 200px;
+    }
+
+    .unfocused {
+      background-color: #ccc;
+      padding: 10px 20px;
+      display: block;
+      width: 200px;
+    }
+
+    #dd1 {
+      background: #f90;
+      width: 300px;
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #dd2 {
+      background-color: aqua;
+      width: 200px;
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #dd3 {
+      background-color: bisque;
+      width: 100px;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+
 <body>
-    <div>
-        <p>First paragraph.</p>
-        <p>Second paragraph.</p>
-        <p class="none">Third paragraph.</p>
-        <p class="none">Fourth paragraph.</p>
-        <p class="none">Fifth paragraph.</p>
-        <p class="none">Sixth paragraph.</p>
-        <p class="none">Seventh paragraph.</p>
-        <p class="none">Eighth paragraph.</p>
-        <p class="none">Nine paragraph.</p>
-        <p class="none">Ten paragraph.</p>
-        <p class="none">Eleventh paragraph.</p>
-        <p class="none">Twelfth paragraph.</p>
-        <p class="none">Thirteenth paragraph.</p>
+  <div class="first_script">
+    <p>First paragraph.</p>
+    <p>Second paragraph.</p>
+    <p class="none">Third paragraph.</p>
+    <p class="none">Fourth paragraph.</p>
+    <p class="none">Fifth paragraph.</p>
+    <p class="none">Sixth paragraph.</p>
+    <p class="none">Seventh paragraph.</p>
+    <p class="none">Eighth paragraph.</p>
+    <p class="none">Nine paragraph.</p>
+    <p class="none">Ten paragraph.</p>
+    <p class="none">Eleventh paragraph.</p>
+    <p class="none">Twelfth paragraph.</p>
+    <p class="none">Thirteenth paragraph.</p>
+  </div>
+  <hr>
+  <div id="kitty">
+    <p>This is basic text</p>
+  </div>
+  <hr>
+  <div id="kitty2"></div>
+  <hr>
+  <div id="kitty3">
+    <p name="first">eventListener sample - click me to change color</p>
+    <p name="second">eventListener sample - click me to change first color</p>
+    <p name="third">eventListener sample - click me to change first color</p>
+  </div>
+  <hr>
+  <div id="kitty4">
+    <div class="unfocused">
+      <input id="input1" type="text" name="login" value="" />
     </div>
-    <hr>
-    <div id="kitty">
-        <p>This is basic text</p>
+    <div class="unfocused">
+      <input id="input2" type="text" name="login" value="" />
     </div>
-    <hr>
-    <div id="kitty2"></div>
+    <input type="button" id="click" value="send" style="width: 240px; margin-top: 10px; margin-bottom: 10px;" />
+    <br>
+    <ul class="menu"> <!-- Основно меню -->
+      <li><a href="#">Начало</a></li> <!-- Елемент без подменю -->
+      <li><a href="#">Продукти</a> <!-- Елемент с подменю -->
+        <ul class="submenu"> <!-- Подменю -->
+          <li><a href="#">Обувки</a></li> <!-- Опция от подменюто -->
+          <li><a href="#">Часовници</a></li> <!-- Опция от подменюто -->
+          <li><a href="#">Дрехи</a></li> <!-- Опция от подменюто -->
+        </ul>
+      </li>
+      <li><a href="#">За нас</a></li> <!-- Елемент без подменю -->
+      <li><a href="#">Контакти</a></li> <!-- Елемент без подменю -->
+    </ul>
+    <p>Текст1</p>
+    <p>Текст2</p>
+    <p>Текст3</p>
+    <p>Текст4</p>
+    <p>Текст5</p>
+    <p>Текст6</p>
+    <p>Текст7</p>
+  </div>
+  <hr>
+  <div id="kitty5"></div>
+  <script>
+    <!-- да ги гледам в конзолата на браузъра -->
+    let firstP = document.getElementsByTagName('p')[0];
+    let pElements = document.getElementsByTagName('div')[0].children;
+    let el = document.querySelector('.none');
+    el.style.display = 'none';
+    let el2 = document.querySelectorAll('div.first_script p:nth-child(4n)');
+    for (let i = 0; i < el2.length; i++) {
+      el2[i].style.display = 'none'; el2[i].style.color = 'blue';
+      el2[i].className = 'no_change'; if (i % 2 == 0) { el2[i].style.display = ''; }
+    } console.log(firstP);
+    console.log(firstP.parentElement); console.log(pElements); </script>
     <script>
-        <!-- да ги гледам в конзолата на браузъра -->
-        let firstP = document.getElementsByTagName('p')[0];
-        let pElements = document.getElementsByTagName('div')[0].children;
-        let el = document.querySelector('.none');
-        el.style.display = 'none';
-        let el2 = document.querySelectorAll('div p:nth-child(4n)');
-        for (let i = 0; i < el2.length; i++) {
-            el2[i].style.display = 'none';
-            el2[i].style.color = 'blue'; 
-            el2[i].className = 'no_change';
-            if (i % 2 == 0) 
-            { 
-                el2[i].style.display = ''; 
-            }
-        } 
-        console.log(firstP); 
-        console.log(firstP.parentElement);
-        console.log(pElements); 
-    </script>
-    <script>
-        let kitty = document.getElementById('kitty');
-        let kitty2 = document.getElementById('kitty2');
+      let kitty = document.getElementById('kitty');
+      let kitty2 = document.getElementById('kitty2');
 
-        let like_push = document.createElement('p');
-        like_push.id = "like_push";
-        like_push.textContent = "I like pushups, i am append text paragraph";
-        kitty.append(like_push);
-        
-        let like_unshift = document.createElement('p');
-        like_unshift.id = "like_unshift";
-        like_unshift.textContent = "I like unshift, i am prepend text paragraph";
-        kitty.prepend(like_unshift);
+      let like_push = document.createElement('p');
+      like_push.id = "like_push";
+      like_push.textContent = "I like pushups, i am append text paragraph";
+      kitty.append(like_push);
 
-        for(let i = 0; i < 3; i++){
-            let replace_with = document.createElement('p');
-            replace_with.className = "replace_with";
-            replace_with.textContent = "I like replace with, i am append text paragraph";
-            replace_with.style.color = "red";
-            let clone = replace_with.cloneNode(true);
-            kitty.append(replace_with);
-            kitty2.append(clone);
+      let like_unshift = document.createElement('p');
+      like_unshift.id = "like_unshift";
+      like_unshift.textContent = "I like unshift, i am prepend text paragraph";
+      kitty.prepend(like_unshift);
+
+      for (let i = 0; i < 3; i++) {
+        let replace_with = document.createElement('p');
+        replace_with.className = "replace_with";
+        replace_with.textContent = "I like replace with, i am append text paragraph";
+        replace_with.style.color = "red";
+        let clone = replace_with.cloneNode(true);
+        kitty.append(replace_with);
+        kitty2.append(clone);
+      }
+
+      let replaced = document.createElement('p');
+      replaced.className = "replaced";
+      replaced.style.color = "green";
+      replaced.style.whiteSpace = "pre";
+      replaced.textContent = "I like replaced. i am replaced with replaceWith\nkitty2 do not exist any more\n";
+      kitty2.replaceWith(replaced);
+
+      let first_div = document.querySelector('div')
+      let replace_all = document.createElement('p');
+      replace_all.style.color = "pink";
+      replace_all.textContent = "I like replace child - i am replaced with replaceChild";
+      let none_element = first_div.querySelector('p');
+      first_div.replaceChild(replace_all, none_element);
+
+      let textNode = document.createTextNode("this is unique text with text node");
+      let clone_textNode = textNode.cloneNode(true);
+      kitty.appendChild(textNode);
+      replaced.appendChild(clone_textNode);
+
+      //different ways to remove element
+      let div = document.createElement('div');
+      let p_element = document.createElement('p');
+      let span = document.createElement('span');
+      let span2 = document.createElement('span');
+      div.textContent = "This is text in div - div have span and p, but i removed span";
+
+      p_element.textContent = "This is text in p";
+      span.textContent = "This is text in span";
+      span2.textContent = "This is text in span2";
+      let span3 = span.cloneNode(true);
+      span3.textContent += "3";
+      div.append(p_element, span, span2, span3);
+      div.removeChild(span);
+      span2.parentNode.removeChild(span2);
+      span3.remove();
+      replaced.append(div);
+
+
+      //different ways to get parentNode and parentElement
+      const li = document.createElement("li");
+      const ul = document.createElement("ul");
+      ul.appendChild(li);
+      const parentNode = li.parentNode;
+      const parentElement = li.parentElement;
+      console.log(parentNode, parentElement);
+
+      const test = document.documentElement
+      console.log("тест елемент (document.documentElement): ", test);
+      const parentNode2 = test.parentNode;
+      const parentElement2 = test.parentElement;
+      console.log("parentNode: ", parentNode2, " parentElement: ", parentElement2);
+
+      //eventListener
+      let eventListener = document.querySelector('#kitty3 p[name="first"]');
+      let eventListener2 = document.querySelector('#kitty3 p[name="second"]');
+      let eventListener3 = document.querySelector('#kitty3 p[name="third"]');
+      let listen = function (n) {
+        console.log(this) // p
+        console.log(n.target) // p
+        console.log(n.currentTarget) // p
+        console.log(n) // target click p
+        n.target.style.color = "red";
+        alert(`I am eventListener, i am clicked`);
+      }
+      let listen2 = function (n) {
+        console.log(this) // window
+        console.log(n.target) // undefined
+        console.log(n.currentTarget) // undefined
+        console.log(n) //p
+        n.style.color = "green";
+        n.textContent = "I'm strongest eventListener and you can't kill me";
+        alert(`I am eventListener2, i am clicked`);
+      }
+      let listen3 = function (n) {
+        console.log(this) // window
+        console.log(n.target) // undefined
+        console.log(n.currentTarget) // undefined
+        console.log(n) //p
+        n.style.color = "purple";
+        n.textContent = "I'm weakest eventListener and you can kill me";
+        alert(`I am eventListener3, i am clicked`);
+      }
+      let reference_to_listen3 = function () { listen3(eventListener); }
+      eventListener.addEventListener('click', listen);
+      //извиквайки променлива задължително със стрелкова функция или анонимна функция            
+      //eventListener2.addEventListener('click',() => {listen2(eventListener);});
+      eventListener2.addEventListener('click', function () { listen2(eventListener); });
+      eventListener3.addEventListener('click', reference_to_listen3);
+      let destroy = document.createElement('fuck');
+      destroy.textContent = "I am destroy";
+      document.querySelector('#kitty3').append(destroy);
+      destroy.addEventListener('click', function () {
+        eventListener.removeEventListener('click', listen);
+        eventListener2.removeEventListener('click', function () { listen2(eventListener); });
+        eventListener3.removeEventListener('click', reference_to_listen3);
+        destroy.remove();
+        alert("I am destroy");
+      });
+
+      //focussed
+      const input1 = document.querySelector('#input1');
+      const input2 = document.querySelector('#input2');
+      const button_send = document.querySelector('#click')
+      const focused_input = document.querySelectorAll('#kitty4 div input')
+      for (div of focused_input) {
+        div.addEventListener('focus', function (e) {
+          console.log(this) // input
+          console.log(e.target) // input
+          console.log(e.currentTarget) // input
+          e.target.parentElement.className = "focused";
+        });
+        div.addEventListener('blur', function (e) {
+          e.target.parentElement.className = "unfocused";
+        });
+      }
+      let focus2 = function (n) {
+        if (input1.value === input2.value) {
+          //button_send.disabled = false
+          button_send.removeAttribute('disabled', true);
+          input2.style.color = "green";
+        } else {
+          input2.style.color = "red";
+
+          button_send.setAttribute('disabled', true);
         }
 
-        let replaced = document.createElement('p');
-        replaced.className = "replaced";
-        replaced.style.color = "green";
-        replaced.style.whiteSpace = "pre";
-        replaced.textContent = "I like replaced. i am replaced with replaceWith\nkitty2 do not exist any more\n";
-        kitty2.replaceWith(replaced);
+      }
+      input2.addEventListener('input', focus2);
 
-        let first_div = document.querySelector('div')
-        let replace_all = document.createElement('p');
-        replace_all.style.color = "pink";
-        replace_all.textContent = "I like replace child - i am replaced with replaceChild";
-        let none_element = first_div.querySelector('p');
-        first_div.replaceChild(replace_all,none_element);
+      let menuItems = document.querySelectorAll('.menu li:not(:empty):not(:only-child)');
+      for (let item of menuItems) {
+        item.addEventListener("mouseover", function (e) {
+          console.log(this) // li
+          console.log(e) // mouseover a
+          console.log(e.target) // a
+          console.log(e.currentTarget) // li
+          this.querySelector(".submenu").style.display = "block";
+        });
+        item.addEventListener("mouseout", function () {
+          this.querySelector(".submenu").style.display = "none";
+        });
+      }
 
-        let textNode = document.createTextNode("this is unique text with text node");
-        let clone_textNode = textNode.cloneNode(true);
-        kitty.appendChild(textNode);
-        replaced.appendChild(clone_textNode);
+      kitty5 = document.querySelector("#kitty5");
+      dd1 = document.createElement('dener');
+      dd2 = document.createElement('dener');
+      dd3 = document.createElement('dener');
+      dd1.id = "dd1";
+      dd2.id = "dd2";
+      dd3.id = "dd3";
+      dd3.textContent = "hi"
+      dd2.append(dd3);
+      dd1.append(dd2);
+      kitty5.append(dd1);
 
-        //different ways to remove element
-        let div = document.createElement('div');
-        let p_element = document.createElement('p');
-        let span = document.createElement('span');
-        let span2 = document.createElement('span');
-        div.textContent = "This is text in div - div have span and p, but i removed span";
-        p_element.textContent = "This is text in p";
-        span.textContent = "This is text in span";
-        span2.textContent = "This is text in span2";
-        div.append(p_element,span,span2);
-        div.removeChild(span);
-        span2.parentNode.removeChild(span2);
-        replaced.append(div);
+      const denerElements = document.querySelectorAll("dener");
+      const denerElements2 = document.querySelectorAll("dener");
+      function logText(e) {
+        console.log(this, "clicked - this"); // currentTarget element
+        console.log(e, "clicked - e");
+        console.log(e.target, "clicked - e.target"); 
+        console.log(e.currentTarget, "clicked - e.currentTarget"); 
+        console.log("---")
+      }
+      function logText2(e) {
+        e.stopPropagation();
+        console.log(this, "clicked - this"); // currentTarget element
+        console.log(e, "clicked - e");
+        console.log(e.target, "clicked - e.target"); 
+        console.log(e.currentTarget, "clicked - e.currentTarget"); 
+        console.log("---")
+      }
 
-        
-        //different ways to get parentNode and parentElement
-        const li = document.createElement("li");
-        const ul = document.createElement("ul");
-        ul.appendChild(li);
-        const parentNode = li.parentNode;
-        const parentElement = li.parentElement;
-        console.log(parentNode, parentElement);
+      //вика елементите в обратен ред - по подразбиране е false
+      denerElements.forEach((el) => el.addEventListener("click", logText, {capture: true }));
+      //denerElements.forEach((el) => el.addEventListener("click", logText, {capture: false }));
+      denerElements2.forEach((el) => el.addEventListener("click", logText2));
 
-        const test = document.documentElement
-        console.log("тест елемент (document.documentElement): ",test);
-        const parentNode2 = test.parentNode;
-        const parentElement2 = test.parentElement;
-        console.log("parentNode: ",parentNode2," parentElement: ", parentElement2);
+      form = document.createElement("form");
+      form.action = "www.abv.bg"
+      submitting = document.createElement("button");
+      submitting.type = "submit";
+      //submitting.textContent = "\u2620";
+      submitting.innerHTML = "&#9760";
+      form.addEventListener("submit", function (e) {e.preventDefault();}, {once: true});
+      form.append(submitting);
+      kitty5.append(form);
+
+
     </script>
 </body>
 
