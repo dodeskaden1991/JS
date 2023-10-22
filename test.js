@@ -146,7 +146,6 @@ function asd(){
         <div id="${i}-13" class="snake"></div>
         <div id="${i}-14" class="snake"></div>
         <div id="${i}-15" class="snake"></div>
-
 `)
     }
 }
