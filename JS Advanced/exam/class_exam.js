@@ -39,7 +39,7 @@ class FlightBookingSystem {
             this.bookingsCount--;
             return `Booking for passenger ${passengerName} on flight ${flightNumber} is cancelled.`
         } else {
-            return `Booking for passenger ${passengerName} on flight ${flightNumber} not found.`
+            throw new Error (`Booking for passenger ${passengerName} on flight ${flightNumber} not found.`)
         }
     }
     showBookings(criteria) {

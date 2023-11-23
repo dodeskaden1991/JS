@@ -211,3 +211,119 @@ const copier = {
   print,
   scan
 };
+
+const obj = {
+  x: "asd",
+  y: "XXXXX",
+  get name() { return this.x + this.y },
+  name2: function () { return this.x + this.y },
+};
+console.log(obj.name)
+console.log(obj.name2())
+d1 = obj.name;
+d2 = obj.name2();
+console.log(d1.length);
+console.log(d2.length);
+
+class Test {
+  static functionality() {
+    console.log("Static functionality");
+  }
+  constructor() {
+    this.text = "Constructor functionality";
+  }
+  method() {
+    console.log("Method functionality");
+  }
+}
+
+let tested = new Test();
+tested.method();
+console.log(tested.text);
+Test.functionality();
+
+class Person {
+  #forbidden = "Невалидна възраст";
+  #forbidden2 = () =>{
+    console.log("Валидна възраст");
+  }
+  constructor(x_name, x_age) {
+    this.name = x_name;
+    this.age = x_age;
+  }
+
+  get age() {
+    return this._age;
+  }
+
+  set age(age) {
+    if (age > 0 && age < 120) {
+      this.#forbidden2();
+      this._age = age;
+    } else {
+      throw new Error(this.#forbidden);
+    }
+  }
+}
+
+class Person2 {
+  constructor(name, age) {
+    //this.probno_name = name;
+    //this.probno_age = age;
+  }
+
+  get age() {
+    return this._age;
+  }
+
+  set age(age) {
+    if (age > 0 && age < 120) {
+      this._age = age;
+    } else {
+      throw new Error("Невалидна възраст");
+    }
+  }
+}
+
+let person = new Person("Pesho", 10);
+let person2 = new Person2("Pesho", 10);
+console.log(person);
+console.log(person2);
+person2.age = 10;
+console.log(person2);
+
+let test_Obj = { a: 1, b: 2, c: 3, d: 4, e: 5 };
+console.log(Object.getOwnPropertyDescriptors(test_Obj));
+console.log(Object.getOwnPropertyDescriptor(test_Obj, 'a'));
+Object.defineProperty(test_Obj, 'a', {writable: false});
+test_Obj.a = 100;
+console.log(test_Obj.a);
+Object.defineProperty(test_Obj, 'new', {value: "new", writable: true, configurable: false, enumerable: false});
+console.log(test_Obj);
+console.log(test_Obj.new);
+try {
+  Object.defineProperty(test_Obj, 'new', {enumerable: true});
+} catch (error) {
+  console.log(error.message);
+}
+Object.defineProperty(test_Obj, 'new', {writable: false});
+delete test_Obj.new;
+console.log(test_Obj.new);
+try {
+  Object.defineProperty(test_Obj, 'new', {writable: true});
+} catch (error) {
+  console.log(error.message);
+}
+
+
+// Замразяване на обект
+//Object.freeze(object); - не може да добавя, да трие и да променя
+
+// Запечатване на обект
+//Object.seal(object); - може да променя само стойностите на пропърти
+
+// Замразяване на обекта
+//Object.freeze(person);
+
+// Клониране на обекта с оператора за разпространение
+//var personCopy = {...person};

@@ -170,37 +170,136 @@ const firstPerson = {
     name: "Peter",
     prof: "Fisherman",
     shareInfo: function () {
-    console.log(`${this.name} works as a ${this.prof}`);
+        console.log(`${this.name} works as a ${this.prof}`);
     }
-    };
-    const secondPerson = { name: "George", prof: "Manager" };
-    firstPerson.shareInfo.apply(secondPerson); // подава данните за this
+};
+const secondPerson = { name: "George", prof: "Manager" };
+firstPerson.shareInfo.apply(secondPerson); // подава данните за this
 
 
 
-    const person_bind = {
-        fullName: function(city, country) {
+const person_bind = {
+    fullName: function (city, country) {
         return this.firstName + " " + this.lastName + "," + city + "," + country;
-        }
-        }
-        
-        const member = {
-        firstName:"Hege",
-        lastName: "Nilsen",
-        }
+    }
+}
 
-        const member2 ={
-            firstName: "Hege2",
-            lastName: "Nilsen2",
+const member = {
+    firstName: "Hege",
+    lastName: "Nilsen",
+}
+
+const member2 = {
+    firstName: "Hege2",
+    lastName: "Nilsen2",
+}
+
+let fullName_static = person_bind.fullName.bind(member, "Oslo", "Norway");
+let fullName_dynamic = person_bind.fullName.bind(member);
+let fullName2 = person_bind.fullName.apply(member, ["Oslo", "Norway"]);
+let fullName3 = person_bind.fullName.call(member, "Oslo", "Norway");
+console.log(fullName_static()); // Hege Nilsen,Oslo,Norway
+console.log(fullName_static(1, 2)); // Hege Nilsen,Oslo,Norway
+console.log(fullName2, typeof (fullName2)); // Hege Nilsen,Oslo,Norway
+console.log(fullName3, typeof (fullName3)); // Hege Nilsen,Oslo,Norway
+console.log(fullName_dynamic(), typeof (fullName_dynamic)); // Hege Nilsen,undefined,undefined
+console.log(fullName_dynamic(1, 2)); // Huge Nilsen,1,2
+
+const f = (function () {
+    let counter = 0;
+    return function () {
+        console.log(++counter);
+    }
+})();
+
+f();
+f();
+f();
+f();
+f();
+
+(function hello() { console.log("hello"); })();
+
+function createFormatter(separator, symbol, symbolFirst, ref_toFunction) {
+    return (number) => ref_toFunction(separator, symbol, symbolFirst, number);
+    //това ще върне функция, която има 4 параметъра :) 
+    //ref_toFunction е просто име на променлива който е еквивалентна на output
+    //с return ние връщаме нова функция, която приема само едно число, но реално във създадения под клон вече извикваме самия output с пълни данни
+}
+
+function createFormatter2(separator, symbol, symbolFirst, ref_toFunction) { 
+    //това ще върне функция, която има 4 параметъра :) тук е по-нагледно
+    return function(number,...input) { 
+        console.log(input)
+        return ref_toFunction(separator, symbol, symbolFirst, number); 
+    }; 
+}
+
+function createFormatter3(separator, symbol, symbolFirst) { 
+    //това показва какво се случва всъщност :)
+    return function(number) { 
+        return output(separator, symbol, symbolFirst, number); 
+    }; 
+}
+
+function createFormatter4(separator, symbol, symbolFirst) { 
+    //а това какво се случва без да се прескача към друга функция :)
+    return function(number) { 
+        if(symbolFirst){
+            return (symbol + " " + number.toFixed(2).replace(".",separator))
+        }else{
+            return (number.toFixed(2).replace(".",separator) + " " + symbol)
         }
-        
-        let fullName_static = person_bind.fullName.bind(member, "Oslo", "Norway");
-        let fullName_dynamic = person_bind.fullName.bind(member);
-        let fullName2 = person_bind.fullName.apply(member, ["Oslo", "Norway"]);
-        let fullName3 = person_bind.fullName.call(member, "Oslo", "Norway");
-        console.log(fullName_static()); // Hege Nilsen,Oslo,Norway
-        console.log(fullName_static(1,2)); // Hege Nilsen,Oslo,Norway
-        console.log(fullName2); // Hege Nilsen,Oslo,Norway
-        console.log(fullName3); // Hege Nilsen,Oslo,Norway
-        console.log(fullName_dynamic()); // Hege Nilsen,undefined,undefined
-        console.log(fullName_dynamic(1,2)); // Huge Nilsen,1,2
+    }; 
+}
+
+function output(separator, symbol, symbolFirst, number) {
+    if(symbolFirst){
+        return (symbol + " " + number.toFixed(2).replace(".",separator))
+    }else{
+        return (number.toFixed(2).replace(".",separator) + " " + symbol)
+    }
+}
+const dollar = createFormatter(',', '$', true, output);
+const leva = createFormatter2(':', 'lv.', false, output);
+const euro = createFormatter3('^', 'e', true);
+const euro2 = createFormatter3('^', 'E', false);
+const crypto = createFormatter4('!', 'Crypt', true);
+
+console.log(dollar(5345,123,123,123)); // $ 5345,00
+console.log(leva(123,"факе",123));
+console.log(euro(5));
+console.log(euro2(6));
+console.log(crypto(5));
+
+//мап приема и функции, както филтър и етк
+users = [ { name: 'Tim', age: 25 },
+{ name: 'Sam', age: 30 },
+{ name: 'Bill', age: 20 } ];
+getName = (user) => user.name;
+usernames = users.map(getName);
+console.log(usernames)
+
+//pure се нарича функция която всеки път връща един и същи резултат
+let number = 1;
+const increment = () => number += 1;
+console.log(increment()) // 2
+console.log(increment()) // 3
+// pure function:
+const increment2 = n => n + 1;
+console.log(increment2(1))
+console.log(increment2(1))
+console.log(increment2(2))
+
+function sum3(a) {
+    return (b) => {
+    return (c) => {
+    return a + b + c;
+    }
+    }
+    }
+    console.log(sum3(5)(6)(8)); 
+let firsr_sum = sum3(5);
+let second_sum = firsr_sum(6);
+let third_sum = second_sum(8);
+console.log(third_sum);

@@ -174,6 +174,10 @@
   </div>
   <hr>
   <div id="kitty5"></div>
+  <div id="kitty6">
+    <input type="text" name="username" />
+    <input type="password" name="password" />
+  </div>
   <script>
     <!-- да ги гледам в конзолата на браузъра -->
     let firstP = document.getElementsByTagName('p')[0];
@@ -370,21 +374,21 @@
       function logText(e) {
         console.log(this, "clicked - this"); // currentTarget element
         console.log(e, "clicked - e");
-        console.log(e.target, "clicked - e.target"); 
-        console.log(e.currentTarget, "clicked - e.currentTarget"); 
+        console.log(e.target, "clicked - e.target");
+        console.log(e.currentTarget, "clicked - e.currentTarget");
         console.log("---")
       }
       function logText2(e) {
         e.stopPropagation();
         console.log(this, "clicked - this"); // currentTarget element
         console.log(e, "clicked - e");
-        console.log(e.target, "clicked - e.target"); 
-        console.log(e.currentTarget, "clicked - e.currentTarget"); 
+        console.log(e.target, "clicked - e.target");
+        console.log(e.currentTarget, "clicked - e.currentTarget");
         console.log("---")
       }
 
       //вика елементите в обратен ред - по подразбиране е false
-      denerElements.forEach((el) => el.addEventListener("click", logText, {capture: true }));
+      denerElements.forEach((el) => el.addEventListener("click", logText, { capture: true }));
       //denerElements.forEach((el) => el.addEventListener("click", logText, {capture: false }));
       denerElements2.forEach((el) => el.addEventListener("click", logText2));
 
@@ -394,12 +398,49 @@
       submitting.type = "submit";
       //submitting.textContent = "\u2620";
       submitting.innerHTML = "&#9760";
-      form.addEventListener("submit", function (e) {e.preventDefault();}, {once: true});
+      form.addEventListener("submit", function (e) { e.preventDefault(); }, { once: true });
       form.append(submitting);
       kitty5.append(form);
 
+      let p_deep = document.createElement('p');
+      let button_deep = document.createElement('button');
+      let before = document.createElement('p');
+      let after = document.createElement('p');
+      before.textContent = "before";
+      after.textContent = "after";
+      button_deep.textContent = "deep";
+      p_deep.textContent = "P-deep";
+      p_deep.appendChild(button_deep);
+      kitty5.append(p_deep);
+      let clone_normal = p_deep.cloneNode(false);
+      let clone_deep = p_deep.cloneNode(true)
+      kitty5.append(clone_normal + "bla");
+      kitty5.append(clone_deep);
+      clone_deep.after(after)
+      clone_deep.before(before)
 
+      const inputEle = document.getElementsByTagName('input')[4];
+      kitty6 = document.getElementById("kitty6")
+      kitty6.innerHTML  += inputEle.getAttribute('type') + " " + inputEle.getAttribute('name'); // username
+      inputEle.removeAttribute('type')
+      inputEle.setAttribute('type', 'text')
+      kitty6.append(inputEle)
+      kitty6.innerHTML  += inputEle.getAttribute('type') + " " + inputEle.getAttribute('name'); // username
     </script>
 </body>
 
 </html>
+
+<!-- <style>
+  .hidden {
+  display: none;
+  }
+</style>
+<div id="myDiv" class="container div root"></div>
+const element = document.getElementById('myDiv').classList;
+DOMTokenList(3)
+["container", "div", "root", value: "container div root"]
+document.getElementById('myDiv').classList.add('hidden');
+document.getElementById('myDiv').classList.remove('hidden');
+element.classList.toggle("hidden"); - добавя
+element.classList.toggle("hidden"); - премахва -->
