@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <title>Админ вход</title>
+</head>
+<body>
+
+<h2>Админ вход</h2>
+
+<input id="email" type="email" placeholder="Email"><br><br>
+<input id="password" type="password" placeholder="Парола"><br><br>
+<button id="loginBtn">Вход</button>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyA5o7SGaQySOU9l-9TDIMLmTPgVmSWxxgI",
+    authDomain: "mushrooms-f524a.firebaseapp.com",
+    projectId: "mushrooms-f524a"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+
+  document.getElementById("loginBtn").onclick = () => {
+    const email = document.getElementById("email").value;
+    const pass = document.getElementById("password").value;
+
+    firebase.auth().signInWithEmailAndPassword(email, pass)
+      .then(() => {
+        window.location.href = "admin-panel.html"; // твоята админ страница
+      })
+      .catch(err => alert("Грешка: " + err.message));
+  };
+</script>
+
+</body>
+</html>

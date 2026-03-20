@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <title>Админ панел – Гъби</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<div class="admin-container">
+
+  <header>
+    <h1>Админ панел</h1>
+    <button id="logoutBtn" class="logout">Изход</button>
+  </header>
+
+  <section class="add-section">
+    <h2>Добавяне на гъба</h2>
+
+    <input id="name" placeholder="Име">
+    <input id="img" placeholder="URL на снимка">
+    <textarea id="description" placeholder="Описание"></textarea>
+
+    <button id="addBtn" class="add-btn">Добави</button>
+  </section>
+
+  <section class="search-section">
+    <input id="adminSearch" type="text" placeholder="Търси гъба...">
+  </section>
+
+  <section class="list-section">
+    <h2>Всички гъби</h2>
+    <div id="list"></div>
+  </section>
+
+</div>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+<script src="admin.js"></script>
+
+</body>
+</html>

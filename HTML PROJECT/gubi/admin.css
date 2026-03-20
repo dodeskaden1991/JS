@@ -1,0 +1,73 @@
+body {
+  font-family: Arial;
+  background: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.admin-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logout {
+  background: #d9534f;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+.add-section, .list-section, .search-section {
+  background: white;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.add-btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: #5cb85c;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.item {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.item button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.edit-btn {
+  background: #0275d8;
+  color: white;
+  border: none;
+}
+
+.delete-btn {
+  background: #d9534f;
+  color: white;
+  border: none;
+}
